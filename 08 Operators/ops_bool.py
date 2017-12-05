@@ -6,10 +6,9 @@
 def main():
     print("This is the ops.py file.")
 
-    5 // 3 # floor division (returns integer)
-    5 / 3  # division (returns float)
-    5 % 3  # remainder
-    divmod (5, 3) # division + module
-    # +=, -=, *=, /=
+    # and or are bool operators
+    print(True and False)
+    print(True or False)
+    print(True & False) # bitwise arithmic
 
 if __name__ == "__main__": main()

@@ -6,10 +6,12 @@
 def main():
     print("This is the ops.py file.")
 
-    5 // 3 # floor division (returns integer)
-    5 / 3  # division (returns float)
-    5 % 3  # remainder
-    divmod (5, 3) # division + module
-    # +=, -=, *=, /=
+    print(0b0101) # Number 5, is printed as decimal
+    b(5)
+
+
+# Prints the binary
+def b(n):
+    print('{:08b}'.format(n))
 
 if __name__ == "__main__": main()
