@@ -10,7 +10,12 @@ import re
 def main():
     fh = open('raven.txt')
     for line in fh:
-        if re.search('(Len|Neverm)ore', line):
+        match = re.search('(Len|Neverm)ore', line)
+        sub = re.sub('(Len|Neverm)ore', "###", line) # sub > search and replace
+        if match:
             print(line, end='')
+            print(match.group())
+            print(sub)
+            print(line.replace(match.group(), '###'), end='')
 
 if __name__ == "__main__": main()
