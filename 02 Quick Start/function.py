@@ -14,4 +14,3 @@ def isprime(n):
 
 for n in range(1, 20):
     isprime(n)
-

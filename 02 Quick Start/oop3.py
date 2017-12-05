@@ -12,7 +12,7 @@ class AnimalActions:
     def quack(self): return self._doAction('quack')
     def feathers(self): return self._doAction('feathers')
 
-    def _doAction(self, action):
+    def _doAction(self, action): # `_` is only called internally
         if action in self.strings:
             return self.strings[action]
         else:
@@ -21,14 +21,14 @@ class AnimalActions:
     def animalName(self):
         return self.__class__.__name__.lower()
 
-# -- MODEL -- 
+# -- MODEL --
 
 class Duck(AnimalActions):
     strings = dict(
         quack = "Quaaaaak!",
         feathers = "The duck has gray and white feathers."
     )
- 
+
 class Person(AnimalActions):
     strings = dict(
         bark = "The person says woof!",
@@ -43,7 +43,7 @@ class Dog(AnimalActions):
         fur = "The dog has white fur with black spots.",
     )
 
-# -- CONTROLLER -- 
+# -- CONTROLLER --
 
 def in_the_doghouse(dog):
     print(dog.bark())
@@ -52,7 +52,7 @@ def in_the_doghouse(dog):
 def in_the_forest(duck):
     print(duck.quack())
     print(duck.feathers())
- 
+
 def main():
     donald = Duck()
     john = Person()
@@ -65,5 +65,5 @@ def main():
     print("-- In the doghouse:")
     for o in ( donald, john, fido ):
         in_the_doghouse(o)
- 
+
 if __name__ == "__main__": main()
