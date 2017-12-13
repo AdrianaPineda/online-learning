@@ -4,6 +4,15 @@
 # Copyright 2010 The BearHeart Group, LLC
 
 def main():
-    print("This is the conditionals.py file.")
+    a, b = 0, 1
+    if a < b:
+        v = 'this is true'
+    else:
+        v = 'this is not true'
+
+    print(v)
+
+
+    v = 'this is true' if a < b else 'this is not true'
 
 if __name__ == "__main__": main()
