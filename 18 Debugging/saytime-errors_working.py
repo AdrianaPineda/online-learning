@@ -23,7 +23,7 @@ class numwords():
             'o\'clock', 'quarter', 'half'
         ), 'range': {
             'hundred': 'hundred'
-        } 'misc': {
+        } 'misc': { # missing comma
             'minus': 'minus'
         }
     }
@@ -67,6 +67,7 @@ class saytime(numwords):
         e.g., fourteen til noon, quarter past one, etc.
     """
 
+    # identation error
    _specials = {
         'noon': 'noon',
         'midnight': 'midnight',
@@ -126,7 +127,8 @@ def main():
             try: print(saytime(*(sys.argv[1].split(':'))).words())
             except TypeError: print("Invalid time ({})".format(sys.argv[1]))
     else:
-        print(saytime_t(time.localtime).words)
+        print(saytime_t(time.localtime).words) # localtime is a function not an attribute
+        # words is also a method, not an attribute
 
 def test():
     print("\nnumbers test:")

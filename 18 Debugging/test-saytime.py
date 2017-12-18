@@ -22,7 +22,7 @@ class TestSaytime(unittest.TestCase):
     def test_time(self):
         time_tuples = (
             (0, 0), (0, 1), (11, 0), (12, 0), (13, 0), (12, 29), (12, 30),
-            (12, 31), (12, 15), (12, 30), (12, 45), (11, 59), (23, 15), 
+            (12, 31), (12, 15), (12, 30), (12, 45), (11, 59), (23, 15),
             (23, 59), (12, 59), (13, 59), (1, 60), (24, 0)
         )
         time_words = (
@@ -48,4 +48,5 @@ class TestSaytime(unittest.TestCase):
         for i, t in enumerate(time_tuples):
             self.assertEqual(saytime.saytime(*t).words(), time_words[i])
 
-if __name__ == "__main__": unittest.main()
+if __name__ == "__main__": unittest.main() # This call will find the classes that
+# import `unittest` and run them
