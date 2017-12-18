@@ -12,9 +12,12 @@ class bwDB:
         '''
             db = bwDB( [ table = ''] [, filename = ''] )
             constructor method
-                table is for CRUD methods 
+                table is for CRUD methods
                 filename is for connecting to the database file
         '''
+        # if the first line of a method is a string, python picks it up
+        # as the documentation
+
         # see filename setter below
         self.filename = kwargs.get('filename')
         self.table = kwargs.get('table', '')
@@ -69,7 +72,7 @@ class bwDB:
         return c.fetchone()[0]
 
     def getrec(self, id):
-        ''' 
+        '''
             db.getrec(id)
             get a single row, by id
         '''
@@ -78,7 +81,7 @@ class bwDB:
         return c.fetchone()
 
     def getrecs(self):
-        ''' 
+        '''
             db.getrecs(id)
             get all rows, returns a generator of Row factories
         '''
@@ -180,7 +183,7 @@ def test():
     ### for file-based database
     # try: os.stat(fn)
     # except: pass
-    # else: 
+    # else:
     #     print('Delete', fn)
     #     os.unlink(fn)
 
@@ -210,10 +213,9 @@ def test():
     newid = db.insert( dict( string = 'extra' ) )
     print('(id is {})'.format(newid))
     print( dict( db.getrec(newid) ) )
-    print('Now delete it')    
+    print('Now delete it')
     db.delete(newid)
     for r in db.getrecs(): print(dict(r))
     db.close()
 
 if __name__ == "__main__": test()
-
