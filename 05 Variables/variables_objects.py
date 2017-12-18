@@ -16,11 +16,11 @@ if __name__ == "__main__": main()
 #   - Type: identifies the class of an object. Cannot change for the life
 #           of the object
 #   - Value: contents of the object. Mutable objects can change value,
-#            immuutable objects cannot
+#            immutable objects cannot
 #
 # All variables in Python are first class objects
 #
-# Mutable and immuutable objects:
+# Mutable and immutable objects:
 # Immutable: numbers, strings, tuples are immutable: if we change it, the id is changed, so no value has
 #            changed
 # Mutable: lists, dictionaries, etc.

@@ -17,4 +17,17 @@ def main():
     print(s.isdigit())
     print(s.isprintable())
 
+    s = 'This is a string {}, {}'
+    id(s)
+    new_string = s.format(1, 2)
+    id(new_string) # different id, `format` returns a new string
+
+    d = dict(a = 1, b = 2)
+    s2 = 'This is a string {a}, {b}'.format(**d)
+    print(s2)
+
+    a = 'This is a string'
+    b = a.split()
+    c = ':'.join(b)
+
 if __name__ == "__main__": main()
