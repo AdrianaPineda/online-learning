@@ -1,14 +1,32 @@
 <!DOCTYPE html>
+<!-- If we want the script to run before the contents of the page are rendered add it to the head -->
+<!-- If we want the script to run after the contents of the page are rendered add it after the body -->
 <html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>An empty page</title>
+
+    <!-- This will generate an error -->
+    <!-- Because the browser is rendering the page from the top down, so when it
+    gets to the script it has yet to create the body element-->
+    <!-- <script>
+        var date = new Date()
+        document.body.innerHTML = "<h1> Today is " + date + "</h1>"
+    </script> -->
+
 </head>
 
 <body>
 
 </body>
+
+<!-- We need to run this after the body because we are modifying the body and we
+want to make sure the browser has created the body element -->
+<script>
+    var date = new Date()
+    document.body.innerHTML = "<h1> Today is " + date + "</h1>"
+</script>
 
 </html>
