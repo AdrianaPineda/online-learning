@@ -5,4 +5,8 @@
 - Constants are all-caps "const = CONSTANTLYUPPERCASE;"
 3. Whitespace matters (to humans). JavaScript doesn't care about whitespaces, but humans do
 4. End each statement with a semicolon. JavaScript doesn't care in general but is a good practice
-5. Use comments liberally
+5. Use comments liberally "//" or /*
+
+
+a == b
+a === b strict equality

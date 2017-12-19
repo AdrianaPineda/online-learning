@@ -6,3 +6,8 @@ var justAnotherVariable;
 
 // Try this in your console:
 // console.log(typeof insertVariableName);
+var a = 5;
+a = a + 4; // Longform version
+a += 4; // Shorthand version
+a ++; // Instead of `a += 1` > Unary operator
+++a; // Add one to the value
