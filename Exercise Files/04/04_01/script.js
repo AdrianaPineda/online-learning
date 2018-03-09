@@ -15,6 +15,7 @@ divided();
 
 // Immediately Invoked Function Expression.
 // Runs as soon as the browser finds it:
+// Variables inside the function are not visible outside of its scope
 (function() {
     var result = 12 / 0.75;
     console.log("12 divided by 0.75 is ", result);

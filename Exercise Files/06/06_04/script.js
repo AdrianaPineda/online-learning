@@ -8,10 +8,11 @@ let secPosition = 267;
 
 var date = new Date();
 console.log(date);
-let hr = date.getHours();
-let min = date.getMinutes();
-let sec = date.getSeconds();
-console.log("Hour: " + hr + " Minute: " + min + " Second: " + sec);
+
+let hour = date.getHours();
+let minute = date.getMinutes();
+let second = date.getSeconds();
+console.log("Hour: " + hour + " Minute: " + minute + " Second: " + second);
 
 HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
 MINUTEHAND.style.transform = "rotate(" + minPosition + "deg)";

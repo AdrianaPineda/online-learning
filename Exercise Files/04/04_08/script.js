@@ -8,7 +8,7 @@ With ECMAScript 2015 (ES6) there are 2 new types of variables
 
 const MYCONSTANT = 5;
 console.log(MYCONSTANT);
-MYCONSTANT = 6; // Throws an error
+//MYCONSTANT = 6; // Throws an error
 
 function logScope() {
   var localVar = 2;
@@ -35,3 +35,18 @@ function logScopeFix() {
 }
 
 logScopeFix();
+
+console.log("****");
+var a = 1;
+var b = 2;
+
+console.log(b);
+
+(function() {
+  var b = 3;
+  console.log(b);
+  a += b;
+})();
+
+console.log(a); // 4
+console.log(b); // 2
