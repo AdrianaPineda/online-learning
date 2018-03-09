@@ -36,3 +36,32 @@ We can also replace the property
 For ids, we can change the ids
 For classes we have the `className` (readwrite) and `classList` (readonly)
 For readonly properties, we can use methods to change their values
+
+### Creating DOM elements
+1. Create element
+`.createElement();`
+2. Create the text node that goes inside the element
+`.createTextNode();`
+3. Add the text node to the element
+`.appendChild();`
+4. Add the element to the DOM tree
+`.appendChild();`
+
+^safer to avoid deleting or breaking the HTML
+
+Example: in moonwalk.html (05_06)
+
+### CSS
+Inline CSS
+Style only gives us the inline styles
+`document.querySelector(".cta a").style`
+`document.querySelector(".cta a").style.backgroundColor = "blue"`
+When the style has a hyphen('-'), change it to camel case
+
+To change the whole style:
+`document.querySelector(".cta a").style.cssText = "padding: 1em, color:white, background-color:red;"`
+`document.querySelector(".cta a").setAttribute("style", "padding: 2em, color:green, background-color:orange;");`
+
+Caution >
+Inline CSS overrides whatever CSS is applied to an element
+In most cases, is better to create a custom CSS rule, targeting class selector
