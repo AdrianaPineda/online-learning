@@ -2,7 +2,9 @@ const HOURHAND = document.querySelector("#hour");
 const MINUTEHAND = document.querySelector("#minute");
 const SECONDHAND = document.querySelector("#second");
 
+
 function runTheClock() {
+
     var date = new Date();
     console.log(date);
     let hr = date.getHours();
