@@ -58,6 +58,19 @@ function start() {
 // Reset everything:
 function reset() {
     console.log("reset button has been pressed!");
+
+    clearInterval(interval);
+    interval = null; // we do this because:
+    // when we re-assign set interval the next time we start the app we are not
+    // setting up a new interval with a new index number, because we will be
+    // running multiple processes in the browser simultaneously
+    // Not understanding this completely
+    timer = [0,0,0,0];
+    timerRunning = false;
+
+    testArea.value = ""
+    theTimer.innerHTML = "00:00:00";
+    testWrapper.style.borderColor = "grey";
 }
 
 // Event listeners for keyboard input and the reset
