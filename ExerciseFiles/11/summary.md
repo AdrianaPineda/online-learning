@@ -17,3 +17,19 @@ code completely unreadable for humans. So typically you minify the code, put it
 into a separate file and then reference that file from index.html or whatever
 main document you are using. (name could be `script.min.js`)
 For example: https://www.minifier.org/
+
+Popular ones are: uglify-js and minifier, but dont support ES6 code
+https://github.com/mishoo/UglifyJS
+
+Looks this one does support ES6: uglify-es
+
+`npm install uglify-es -g; uglifyjs script.js -o script.min.js`
+
+For documentation: https://developer.mozilla.org/en-US/docs/Web/Javascript
+
+Recommended courses:
+Eve Porcello > Up and Running with ECMAScript 6
+Joe > Debugging the Web: Javascript
+Joe Marini > JQuery Essential Training
+Eve Porcello > React.js Essential Training
+Justin Schwartzenberger > Angular 2 Essential Training
