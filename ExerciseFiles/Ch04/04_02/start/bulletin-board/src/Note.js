@@ -5,15 +5,23 @@ import FaTrash from 'react-icons/lib/fa/trash'
 class Note extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			editing: false
+		}
 		this.edit = this.edit.bind(this)
 		this.remove = this.remove.bind(this)
 	}
+
 	edit() {
-		alert('editing note')
+		this.setState({
+			editing: true
+		})
 	}
+
 	remove() {
 		alert('removing note')
 	}
+
 	render() {
 		return (
 			<div className="note">
