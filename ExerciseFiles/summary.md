@@ -38,6 +38,7 @@ We use:
 
 
 ## Class component
+React projects are a collection of composed components.
 User interfaces are created by composing components (make a UI out of several nested components)
 Every React component requires the `render` method, which return some JSX text
 
@@ -83,4 +84,21 @@ give us several npm scripts that we can use to build the project
 
 `npm start` will run the project on port localhost:3000
 
+## Chapter 4
 `npm install --save react-icons` to install icons
+
+## Using refs
+When creating stateful components in React there are times when we might want to check in
+with UI elements to access their values. For example getting the text a user entered
+in a textarea.
+`<textarea ref={input => this._newText = input}/>`
+
+## Adding child elements
+`return (
+    <Note key={i}
+          index={i}>
+          {note.note}
+    </Note>
+)`
+
+`<p>{this.props.children}</p>`
