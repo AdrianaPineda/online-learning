@@ -32,9 +32,10 @@
 		}
 
 		const HelloStateless = ({firstName}) => <h1>Hello {firstName}</h1>
-	
+
 		ReactDOM.render(
 			<HelloStateless firstName="Bill" version={16}/>,
+            // Version passed as number
 			document.getElementById('react-container')
 		)
 

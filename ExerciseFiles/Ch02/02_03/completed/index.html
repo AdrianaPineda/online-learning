@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
   	<style>
+    /* id is with #, and class with . */
   		#fancy {
   			background-color: gray;
   		}
@@ -25,11 +26,13 @@
 				return (
 					<div id="fancy">
 						<h1 className="heading">Hello World</h1>
+                        // We cannnot use `class` attribute cause is a reserved word, instead
+                        // we use `className`
 					</div>
 				)
 			}
 		}
-	
+
 		ReactDOM.render(
 			<Hello/>,
 			document.getElementById('react-container')
