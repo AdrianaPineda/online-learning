@@ -26,9 +26,12 @@ class Board extends Component {
 
 	update(newText, i) {
 		console.log('updating item at index', i, newText)
+		// To set the state with a previous one
 		this.setState(prevState => ({
 			notes: prevState.notes.map(
 				note => (note.id !== i) ? note : {...note, note: newText}
+				// ...note, note: newText > passes all the keys of the note, but
+				// will overwrite the `note` key
 			)
 		}))
 	}

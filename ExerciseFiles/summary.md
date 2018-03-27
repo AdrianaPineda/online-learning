@@ -84,7 +84,7 @@ give us several npm scripts that we can use to build the project
 
 `npm start` will run the project on port localhost:3000
 
-## Chapter 4
+# Chapter 4
 `npm install --save react-icons` to install icons
 
 ## Using refs
@@ -102,3 +102,23 @@ in a textarea.
 )`
 
 `<p>{this.props.children}</p>`
+
+# Chapter 5
+In React, we store state in the parent component, we pass down state via props,
+and then we pass up new information with events
+Board: `<Note key={i} index={i} onChange={this.update} ...` > props
+Note: `this.props.onChange(this._newText.value, this.props.index)` > event
+
+setState can take in an object or a function.
+To set the state with the previous state:
+`this.setState(prevState => ({
+    notes: prevState.notes.map(
+        note => (note.id !== i) ? note : {...note, note: newText}
+    )
+}))`
+
+
+`{} object syntax`
+
+Used to send content:
+`<button onClick={this.add.bind(null, "New Note")}></button>`
