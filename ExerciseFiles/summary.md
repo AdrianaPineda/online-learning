@@ -82,3 +82,5 @@ compilation of JSX to regular javascript, setup a webpack build behind the scene
 give us several npm scripts that we can use to build the project
 
 `npm start` will run the project on port localhost:3000
+
+`npm install --save react-icons` to install icons
