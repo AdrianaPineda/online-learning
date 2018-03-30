@@ -16,12 +16,28 @@ We use `ReactDOM` to render elements to the DOM
 ## JSX
 JSX (javascript as XML): is a language extension that allows you to write tags
 directly in your javascript
-To include it:
+
+JSX is not natively supported by the browser, in order to use it we have to
+transpile it. The leading tool for transpiling JavaScript so that is ready for
+the browser is Babel.
+Babel takes code that isn't supported by the browser and spits it out as code
+that the browser supports.
+The fastest to get started with Babel is to use the in browser transpiler.
+
+To include it (Babel's inline browser transpiler):
 <!--
 <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 AND
 <script type="text/babel">
 -->
+OR
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
+AND
+<script type="text/babel">
+-->
+
+Check out: https://cdnjs.com
 
 Instead of:
 
@@ -36,6 +52,8 @@ We use:
     document.getElementById('react-container')
 ) -->
 
+However, when working in production we want to handle transpiling before the
+scripts get to the browser. See more on `Babel Static Transpiling with babel-cli`
 
 ## Class component
 React projects are a collection of composed components.

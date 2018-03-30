@@ -42,3 +42,68 @@ We *never read* from the DOM and we only write to it when a change is required.
 httpster -> to start a server to load the files easily
 `npm install -g httpster`
 `httpster -d ./dist -p 3000` // -d for directory; -p for port
+
+## Using JSX + Babel
+`style={style}`, the {} denote a JSX expression
+
+##  Babel Static Transpiling with babel-cli
+`npm init` > generates package.json
+`npm install babel-cli@6.18.0 --save-dev` > installs babel-cli
+`npm install -g babel-cli` > will allow me to run the babel-cli command from anywhere on my computer
+Good practice: create `src` folder to include js files
+Create file `.babelrc`: we set the presets or everything we want to transpile using Babel
+`npm install babel-preset-react@6.16.0 --save-dev`
+`npm install babel-preset-latest@6.16.0 --save-dev`
+`npm install babel-preset-stage-0@6.16.0 --save-dev`
+`babel ./src/index.js --out-file ./dist/bundle.js` > transpiles everything into bundle.js
+
+In `package.json`, the `start` command includes the server install, so we can do
+`npm start`
+
+## Building with webpack
+Webpack is a module bundler that helps us create static files and helps us
+automate processes that need to happen before our files can go into production.
+
+A typical html might load several different scripts, making several http requests.
+Webpack will run several commands at a time to create a bundle file. This bundle
+packages scripts, dependencies and even CSS into one file. One file means one request.
+
+1. Create a Webpack config file: `webpack.config.js`. It will describe everything
+we want webpack to do to our files, to get them ready for production.
+2. Install webpack `npm install webpack@1.13.3 --save-dev`
+3. Install Babel loader `npm install babel-loader@6.2.5 --save-dev`
+4. Install Webpack dev server `npm install webpack-dev-server@1.16.2 --save-dev`
+Any change to the files, will automatically be rebuilt. Reloads automatically
+5. Install webpack globally: `npm install -g webpack@1.13.3`
+6. Run webpack `webpack`. If you want to use webpack locally `./node_modules/.bin/webpack`
+This creates the bundle.js file :)
+7. Update the index.html to use the bundle.js `src="assets/bundle.js"`
+8. In package.json we can use the webpack dev server: `"start": "./node_modules/.bin/webpack-dev-server"`
+when running `npm start`
+
+## Loading JSON with webpack - Section 2 Video 6
+1. Install react and react dom:
+`npm install react@15.3.2 --save-dev`
+`npm install react-dom@15.3.2 --save-dev`
+We can now remove them from the index file
+2. Create lib.js file under src folder
+3. Create titles.json file under src folder
+4. See lib.js to understand how to get values from the json file
+5. An additional loader is needed to process the json data, in webpack.config.js
+6. Install json loader `npm install json-loader@0.5.4 --save-dev`
+7. `npm start`
+
+## Adding CSS to webpack build - Section 2 Video 7
+1. Inside `src` folder, create another folder `stylesheets`
+2. Create `xxx.css` and `yyy.scss` inside `stylesheets` folder. We will use
+webpack to transpile scss to css
+3. An additional loader is needed to process the css, in webpack.config.js
+4. An additional loader is needed to process the scss, in webpack.config.js
+5. Install dependencies:
+`npm install autoprefixer-loader@3.2.0 --save-dev`
+`npm install css-loader@0.25.0 --save-dev`
+`npm install node-sass@3.10.1 --save-dev`
+`npm install sass-loader@4.0.2 --save-dev`
+`npm install style-loader@0.13.1 --save-dev`
+6. In lib.js add `import './stylesheets/goodbye.scss'` and `import './stylesheets/hello.css'`
+7. `npm start`

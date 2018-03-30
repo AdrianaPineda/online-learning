@@ -1,0 +1,4 @@
+{
+    'presets': ['latest', 'react', 'stage-0']
+}
+/* Run Babels on all of our ECMAScript features and all of our JSX */
