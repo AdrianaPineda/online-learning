@@ -9,5 +9,5 @@ const title = createElement(
 
 render(
 	title,
-	document.getElementById('react-container')
+	document.getElementById('react-container') // Where we want the element to render to the actual DOM
 )

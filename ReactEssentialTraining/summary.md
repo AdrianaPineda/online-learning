@@ -39,3 +39,6 @@ We *never read* from the DOM and we only write to it when a change is required.
 
 # Chapter 2
 ## Pure React
+httpster -> to start a server to load the files easily
+`npm install -g httpster`
+`httpster -d ./dist -p 3000` // -d for directory; -p for port
