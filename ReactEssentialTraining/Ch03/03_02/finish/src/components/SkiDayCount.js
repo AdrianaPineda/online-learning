@@ -1,6 +1,8 @@
 import React from 'react'
 import '../stylesheets/ui.scss'
 
+// Create class > creates React component. Not recommended in newer versions
+// 'export' is needed so we can import it in index.js
 export const SkiDayCount = React.createClass({
 	render() {
 		return (

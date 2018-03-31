@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import '../stylesheets/ui.scss'
 
+// ES6 class syntax
 export class SkiDayCount extends Component {
 	percentToDecimal(decimal) {
 		return ((decimal * 100) + '%')
@@ -26,7 +27,7 @@ export class SkiDayCount extends Component {
 				<div>
 					<span>
 						{this.calcGoalProgress(
-							this.props.total, 
+							this.props.total,
 							this.props.goal
 						)}
 					</span>

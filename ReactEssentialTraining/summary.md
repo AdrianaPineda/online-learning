@@ -107,3 +107,60 @@ webpack to transpile scss to css
 `npm install style-loader@0.13.1 --save-dev`
 6. In lib.js add `import './stylesheets/goodbye.scss'` and `import './stylesheets/hello.css'`
 7. `npm start`
+
+# Chapter 3
+When we look at a user interface designed with React, we can think of it as just
+being an organized collection of components. The purpose of each component is to
+display data
+
+## Component properties
+Think of properties in React as being an object and every property is a key.
+
+## ES6 - Video 5
+Specification released in 2015 that describes how JavaScript should be implemented
+by browsers.
+One feature of ES6, used with React, is class syntax
+`export class SkiDayCount extends Component {`
+
+## Creating stateless functional components
+So far, we have use 2 different components to create component:
+- `createClass`
+- ES6 class (`export class SkiDayCount extends Component `)
+
+Another option is to create a component using a function (stateless functional
+components). Stateless functional components are functions that take in property
+information, and return JSX elements. Stateless components can't access `this`,
+so properties are passed directly into the function. Also local methods need to
+be removed and put into their own functions.
+
+`const MyComponent = (props) => (
+    <div>{props.title}</div>
+)`
+
+It's typically a good idea to use stateless component whenever possible.
+Stateless components offer a functional way to work with components and, also,
+the React team has hinted that there may be some performance benefits of using
+these functions, rather than using `createClass`, or ES6 classes.
+
+## Adding React icons
+React is a library not a framework; libraries are pretty small
+
+https://gorangajic.github.io/react-icons/fa.html
+
+The destructuring assignment syntax was introduced to JavaScript in ES6, it is
+a simple way of extracting data stored in objects and arrays into variables
+
+# Chapter 4
+
+## Displaying child components
+In React if we're rendering children from an array, we need to supply a key value,
+because that's going to help with smart rendering, then React will know what to
+update.
+We can send each of the props, or use the JSX spread operator `{...day}`. The spread
+operator is going to take any keys that are part of that object and make them
+accessible by the class they are being sent to.
+
+## Default properties
+Allows us to provide values when they are not supplied
+
+## Validating with React.PropTypes
