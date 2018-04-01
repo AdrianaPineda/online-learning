@@ -15,9 +15,13 @@ class MemberList extends Component {
         this.removeAdmin = this.removeAdmin.bind(this)
     }
 
-        componentWillUpdate(nextProps) {
+    componentWillUpdate(nextProps) {
         this.style = { backgroundColor: (nextProps.admin) ? 'green' : 'purple' }
     }
+
+    // shouldComponentUpdate(nextProps) {
+    //     return this.props.admin !== nextProps.admin
+    // }
 
     componentDidUpdate(prevProps) {
        console.log(`${prevProps.name} updated`, prevProps.admin, this.props.admin)

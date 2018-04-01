@@ -18,7 +18,7 @@ class MemberList extends Component {
             .then(response => response.json())
             .then(json => json.results)
             .then(members => this.setState({
-                members,
+                members, // in ES6 we have object literal enhancement, no need for members: members
                 loading: false
             }))
     }

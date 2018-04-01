@@ -365,6 +365,8 @@ _backcountry.checked = false`
 							 onNewDay }) => {`
 4. Pass `onNewDay` down as a property to the `AddDayForm`
 `<AddDayForm onNewDay={this.addDay}/>`
+
+Note: for onClick > `<a onClick={() => removeAdmin(email)}>Remove Admin</a>`
 5. Add method in `App.js`
 `addDay(newDay) {
     this.setState({
@@ -380,4 +382,26 @@ See `class Autocomplete extends Component`
 In the form `<Autocomplete options={tahoeResorts} ref={input => _resort = input}/>`
 
 # Chapter 7
-## Building the Member Component
+Component lifecycle methods can be used in createClass and ES6 Class components.
+## Mounting lifecycle
+React provides methods that you can use to execute bits of code at certain
+moments in a component's lifetime.
+
+`componentDidMount` fires as soon as the render method fires for the first time.
+`componentWillMount` fires right before our initial render
+
+## Updating lifecycle
+
+`componentWillUpdate` we can set the style here
+`shouldComponentUpdate` performs a logical test to make sure that the component
+should update. Useful to avoid rendering when it's unnecessary
+
+# Conclusion
+Redux is a state management solution that is a very popular companion to React.
+
+React Native lets you build mobile apps using JavaScript and React
+
+Data management solutions:
+- Relay
+- Falcor
+- GraphQL
