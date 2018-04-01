@@ -1,12 +1,13 @@
 import { PropTypes, Component } from 'react'
 
-export const AddDayForm = ({ resort, 
-							 date, 
-							 powder, 
+// Instead of props, we receive the values as params
+export const AddDayForm = ({ resort,
+							 date,
+							 powder,
 							 backcountry }) => {
-	
+
 	let _resort, _date, _powder, _backcountry
-	
+
 	const submit = (e) => {
 		e.preventDefault()
 		console.log('resort', _resort.value)
@@ -20,32 +21,32 @@ export const AddDayForm = ({ resort,
 		<form onSubmit={submit} className="add-day-form">
 
 			<label htmlFor="resort">Resort Name</label>
-			<input id="resort" 
-				   type="text" 
-				   required 
+			<input id="resort"
+				   type="text"
+				   required
 				   defaultValue={resort}
 				   ref={input => _resort = input}/>
 
 			<label htmlFor="date">Date</label>
-			<input id="date" 
-				   type="date" 
-				   required 
+			<input id="date"
+				   type="date"
+				   required
 				   defaultValue={date}
 				   ref={input => _date = input}/>
 
 			<div>
-				<input id="powder" 
-					   type="checkbox" 
-					   defaultChecked={powder}	
+				<input id="powder"
+					   type="checkbox"
+					   defaultChecked={powder}
 					   ref="powder"
 					   ref={input => _powder = input}/>
 				<label htmlFor="powder">Powder Day</label>
 			</div>
 
-			<div>	
-				<input id="backcountry" 
+			<div>
+				<input id="backcountry"
 					   type="checkbox"
-					   defaultChecked={backcountry} 
+					   defaultChecked={backcountry}
 					   ref="backcountry"
 					   ref={input => _backcountry = input}/>
 				<label htmlFor="backcountry">

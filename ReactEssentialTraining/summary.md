@@ -162,5 +162,222 @@ accessible by the class they are being sent to.
 
 ## Default properties
 Allows us to provide values when they are not supplied
+`SkiDayCount.defaultProps = {
+  total: 50,
+  powder: 10,
+  backcountry: 15,
+  goal: 75
+}`
 
 ## Validating with React.PropTypes
+PropTypes allow us to supply a property type for all of our different properties,
+so that it will validate we're supplying the right type.
+It is a good way to document what should be supplied as values.
+- createClass way
+`propTypes: {
+  total: PropTypes.number.isRequired,
+  powder: PropTypes.number,
+  backcountry: PropTypes.number
+},
+`
+- ES6 way and stateless
+`SkiDayCount.propTypes = {
+  total: PropTypes.number,
+  powder: PropTypes.number,
+  backcountry: PropTypes.number
+}
+`
+
+## Custom validation
+`SkiDayList.propTypes = {
+	days: function(props) {
+		if(!Array.isArray(props.days)) {
+			return new Error(
+				"SkiDayList should be an array"
+				)
+		} else if(!props.days.length) {
+			return new Error(
+				"SkiDayList must have at least one record"
+				)
+		} else {
+			return null
+		}
+	}
+}
+`
+
+## Working with state
+State represents the possible conditions of your application.
+In React apps we want to:
+- Identify the minimal representation of app state
+- Reduce state to as few components as possible
+- Avoid overwriting state variables, which can cause chaos in our applications
+
+`getInitialState()` is how we initialize state as the default. When the app renders
+for the first time, we will use this initial state.
+
+In a stateless functional component you cannot set up initial state.
+
+## Passing state as props
+`render() {
+    return (
+        <div className="app">
+            <SkiDayList days={this.state.allSkiDays}/>
+            <SkiDayCount total={this.countDays()}
+                         powder={this.countDays(
+                                "powder"
+                            )}
+                         backcountry={this.countDays(
+                                "backcountry"
+                            )}/>
+        </div>
+    )
+}`
+
+## State with ES6 classes
+With constructor
+
+# Chapter 5 - React Router
+Routing solution for React applications.
+The react-router is a tool that helps you dynamically display the page we want to see .
+
+## Incorporating the Router
+`npm install react-router --save`
+For example: `<Route path="/" component={App}/>`
+
+`<Router history={hashHistory}>`
+- history is going to listen to the browser's address bar for any changes
+and it will keep track of those changes.
+
+## Setting up routes
+`<Router history={hashHistory}>
+    <Route path="/" component={App}/>
+    <Route path="list-days" component={App} />
+    <Route path="add-day" component={App} />
+    <Route path="*" component={Whoops404}/>
+</Router>,`
+
+## Navigating with the link component
+`import { Link } from 'react-router'`
+
+`<Link to="/" activeClassName="selected">
+    <HomeIcon />
+</Link>
+<Link to="/add-day" activeClassName="selected">
+    <AddDayIcon />
+</Link>
+...`
+
+The `Link` component is converted to a `a` tag HTML element
+
+## Using route parameters
+index.js
+`<Route path="list-days" component={App}>
+    <Route path=":filter" component={App} />
+</Route>`
+SkiDayList.js
+` const filteredDays = (!filter ||
+       !filter.match(/powder|backcountry/))?
+       days:
+       days.filter(day => day[filter])`
+
+
+`<td colSpan={4}>
+    <Link to="/list-days">
+        All Days
+    </Link>
+    <Link to="/list-days/powder">
+        Powder Days
+    </Link>
+    <Link to="/list-days/backcountry">
+        Backcountry Days
+    </Link>
+</td>`
+
+The Router makes it fairly easy to pass these router parameters so that we can
+create unique routes for filtered data.
+With router parameters we can easily go to a different route based on a filter.
+
+## Nesting routes
+index.js
+`export const Left = ({ children }) =>`
+// We are passing children is because the left component, when rendered,
+// will render any children dynamically
+
+routes.js
+`<Route path="/" component={Left}>
+    <Route path="about" component={About} />
+    <Route path="members" component={MemberList} />
+</Route>`
+
+# Chapter 6 - Forms and Refs
+
+## Refs in class components
+Props are typically the only way that parents' components can interact with their
+children. When we modify a child, you re-render it with new props.
+`ref="resort"`
+`console.log('resort', this.refs.resort.value)`
+OR `console.log('powder', this.refs.powder.checked)` > for boolean
+We can use refs the same way we use props
+
+Note: to set the default of a checkbox to be the value of a property:
+`defaultChecked=`
+
+## Use refs in stateless components
+In stateless components we don't have access to the `this` keyword. If we use refs,
+we won't be able to access them with `this`.
+We can use callback functions as refs to capture the values.
+
+From `ref="resort"` to:
+`ref={input => _resort = input}` (see the `_`?)
+
+Now, to capture those values:
+1. Create variables, to keep them in scope so we can use them inside of our nested
+functions:
+`let _resort, _date, _powder, _backcountry`
+2. Log values:
+`console.log('date', _date.value)
+console.log('powder', _powder.checked)`
+
+Callback refs can be use with ES6 classes, but they must be used with stateless
+functional components.
+
+## Two-way function binding
+We need to pass the values up the component tree to the parent
+
+1. On the `onSubmit` method, we will add this:
+`onNewDay({
+    resort: _resort.value,
+    date: _date.value,
+    powder: _powder.checked,
+    backcountry: _backcountry.checked
+})`
+2. Reset values:
+`_resort.value = ''
+_date.value = ''
+_powder.checked = false
+_backcountry.checked = false`
+3. Add `onNewDay` as a property of the `AddDayForm`
+`export const AddDayForm = ({ resort,
+							 date,
+							 powder,
+							 backcountry,
+							 onNewDay }) => {`
+4. Pass `onNewDay` down as a property to the `AddDayForm`
+`<AddDayForm onNewDay={this.addDay}/>`
+5. Add method in `App.js`
+`addDay(newDay) {
+    this.setState({
+        allSkiDays: [
+            ...this.state.allSkiDays,
+            newDay
+        ]
+    })
+}`
+
+## Autocomplete component
+See `class Autocomplete extends Component`
+In the form `<Autocomplete options={tahoeResorts} ref={input => _resort = input}/>`
+
+# Chapter 7
+## Building the Member Component

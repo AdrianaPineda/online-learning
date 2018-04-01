@@ -1,12 +1,14 @@
 import MainMenu from './ui/MainMenu'
 
-export const Left = ({ children }) => 
+// We are passing children is because the left component, when rendered,
+// will render any children dynamically
+export const Left = ({ children }) =>
 	<div className="page">
 		<MainMenu className="main-menu"/>
 		{children}
 	</div>
 
-export const Right = ({ children }) => 
+export const Right = ({ children }) =>
 	<div className="page">
 		{children}
 		<MainMenu className="main-menu"/>

@@ -4,18 +4,19 @@ const tahoeResorts = [
 	"Alpine Meadows",
 	"Boreal",
 	"Diamond Peak",
-	"Donner Ski Ranch", 
-	"Heavenly", 
+	"Donner Ski Ranch",
+	"Heavenly",
 	"Homewood",
 	"Kirkwood",
-	"Mt. Rose", 
+	"Mt. Rose",
 	"Northstar",
 	"Squaw Valley",
 	"Sugar Bowl"
 ]
 
 class Autocomplete extends Component {
-	
+
+	// Getter and setter
 	get value() {
 		return this.refs.inputResort.value
 	}
@@ -28,11 +29,11 @@ class Autocomplete extends Component {
 		return (
 			<div>
 				<input ref="inputResort"
-					   type="text" 
+					   type="text"
 					   list="tahoe-resorts" />
 				<datalist id="tahoe-resorts">
 					{this.props.options.map(
-						(opt, i) => 
+						(opt, i) =>
 						<option key={i}>{opt}</option>)}
 				</datalist>
 			</div>
@@ -42,14 +43,14 @@ class Autocomplete extends Component {
 
 
 
-export const AddDayForm = ({ resort, 
-							 date, 
-							 powder, 
+export const AddDayForm = ({ resort,
+							 date,
+							 powder,
 							 backcountry,
 							 onNewDay }) => {
-	
+
 	let _resort, _date, _powder, _backcountry
-	
+
 	const submit = (e) => {
 		e.preventDefault()
 		onNewDay({
@@ -73,25 +74,25 @@ export const AddDayForm = ({ resort,
 				   		  ref={input => _resort = input}/>
 
 			<label htmlFor="date">Date</label>
-			<input id="date" 
-				   type="date" 
-				   required 
+			<input id="date"
+				   type="date"
+				   required
 				   defaultValue={date}
 				   ref={input => _date = input}/>
 
 			<div>
-				<input id="powder" 
-					   type="checkbox" 
-					   defaultChecked={powder}	
+				<input id="powder"
+					   type="checkbox"
+					   defaultChecked={powder}
 					   ref="powder"
 					   ref={input => _powder = input}/>
 				<label htmlFor="powder">Powder Day</label>
 			</div>
 
-			<div>	
-				<input id="backcountry" 
+			<div>
+				<input id="backcountry"
 					   type="checkbox"
-					   defaultChecked={backcountry} 
+					   defaultChecked={backcountry}
 					   ref="backcountry"
 					   ref={input => _backcountry = input}/>
 				<label htmlFor="backcountry">

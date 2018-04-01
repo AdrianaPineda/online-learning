@@ -3,32 +3,33 @@ import { PropTypes, Component } from 'react'
 export class AddDayForm extends Component {
 	render() {
 
-		const { resort, date, powder, backcountry } = this.props 
+		// Destructure props
+		const { resort, date, powder, backcountry } = this.props
 
 		return (
 			<form className="add-day-form">
-
+				// for is a reserved word in JavaScript, thats why we use htmlFor in JSX
 				<label htmlFor="resort">Resort Name</label>
-				<input id="resort" 
-					   type="text" 
-					   required 
+				<input id="resort"
+					   type="text"
+					   required
 					   defaultValue={resort}/>
 
 				<label htmlFor="date">Date</label>
-				<input id="date" 
-					   type="date" 
-					   required 
+				<input id="date"
+					   type="date"
+					   required
 					   defaultValue={date}/>
 
 				<div>
-					<input id="powder" 
-						   type="checkbox" 
+					<input id="powder"
+						   type="checkbox"
 						   defaultChecked={powder}	/>
 					<label htmlFor="powder">Powder Day</label>
 				</div>
 
-				<div>	
-					<input id="backcountry" 
+				<div>
+					<input id="backcountry"
 						   type="checkbox"
 						   defaultChecked={backcountry} />
 					<label htmlFor="backcountry">

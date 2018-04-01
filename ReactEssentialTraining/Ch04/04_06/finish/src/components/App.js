@@ -1,6 +1,7 @@
 import { createClass } from 'react'
 
 export const App = createClass({
+	// This is how we initialize state as the default
 	getInitialState() {
 		return {
 			allSkiDays: [
