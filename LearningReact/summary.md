@@ -125,7 +125,10 @@ in a textarea.
 In React, we store state in the parent component, we pass down state via props,
 and then we pass up new information with events
 Board: `<Note key={i} index={i} onChange={this.update} ...` > props
+
 Note: `this.props.onChange(this._newText.value, this.props.index)` > event
+
+* See README for another option with onClick
 
 setState can take in an object or a function.
 To set the state with the previous state:
