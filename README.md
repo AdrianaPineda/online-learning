@@ -20,7 +20,7 @@ You might think that Board should just inquire what the current state of each Sq
 `class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={() => this.props.onClick()}>
+      <button className="square" onClick={() => this.props.onClick()}> // onClick={this.props.onClick} also works
         {this.props.value}
       </button>
     );
@@ -38,3 +38,20 @@ Board:
  }`
  
  It is conventional in React apps to use on* names for the attributes and handle* for the handler methods.
+
+## Immutability
+- Easier Undo/Redo and Time Travel: Immutability also makes some complex features much easier to implement. Avoiding data mutations lets us keep a reference to older versions of the data, and switch between them if we need to.
+- Tracking Changes: Determining if a mutated object has changed is complex because changes are made directly to the object. This then requires comparing the current object to a previous copy, traversing the entire object tree, and comparing each variable and value. This process can become increasingly complex.
+Determining how an immutable object has changed is considerably easier. If the object being referenced is different from before, then the object has changed. That’s it.
+- Determining When to Re-render in React: The biggest benefit of immutability in React comes when you build simple pure components. Since immutable data can more easily determine if changes have been made, it also helps to determine when a component requires being re-rendered.
+To learn more about shouldComponentUpdate() and how you can build pure components take a look at Optimizing Performance(https://reactjs.org/docs/optimizing-performance.html#examples)
+
+## Functional Components
+Useful for components that only consist of a render method
+`function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}`
