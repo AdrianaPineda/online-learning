@@ -3,6 +3,11 @@ React is a declarative, efficient, and flexible JavaScript library for building 
 https://reactjs.org/tutorial/tutorial.html
 
 Your components tell React what you want to render – then React will efficiently update and render just the right components when your data changes.
+React elements are first-class JS objects.
+`key` is a special property that’s reserved by React (along with ref, a more advanced feature). Even though it may look like it is part of props, it cannot be referenced with this.props.key. React uses the key automatically while deciding which children to update; there is no way for a component to inquire about its own key.
+When a list is rerendered, React takes each element in the new version and looks for one with a matching key in the previous list. When a key is added to the set, a component is created; when a key is removed, a component is destroyed. Keys tell React about the identity of each component, so that it can maintain the state across rerenders. If you change the key of a component, it will be completely destroyed and recreated with a new state.
+
+`It’s strongly recommended that you assign proper keys whenever you build dynamic lists`. If you don’t have an appropriate key handy, you may want to consider restructuring your data so that you do. If you don’t specify any key, React will warn you and fall back to using the array index as a key – which is not the correct choice if you ever reorder elements in the list or add/remove items anywhere but the bottom of the list. Explicitly passing key={i} silences the warning but has the same problem so isn’t recommended in most cases. Component keys don’t need to be globally unique, only unique relative to the immediate siblings.
 
 A component takes in parameters, called props, and returns a hierarchy of views to display via the render method.
 
@@ -17,7 +22,8 @@ When you want to aggregate data from multiple children or to have two child comp
 
 You might think that Board should just inquire what the current state of each Square is. Although it is technically possible to do this in React, it is discouraged because it tends to make code difficult to understand, more brittle, and harder to refactor.
 
-`class Square extends React.Component {
+```
+class Square extends React.Component {
   render() {
     return (
       <button className="square" onClick={() => this.props.onClick()}> // onClick={this.props.onClick} also works
@@ -25,17 +31,20 @@ You might think that Board should just inquire what the current state of each Sq
       </button>
     );
   }
-}`
+}
+```
 
 Board:
-`renderSquare(i) {
+```
+renderSquare(i) {
     return (
       <Square
         value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
       />
     );
- }`
+ }
+ ```
  
  It is conventional in React apps to use on* names for the attributes and handle* for the handler methods.
 
@@ -48,10 +57,12 @@ To learn more about shouldComponentUpdate() and how you can build pure component
 
 ## Functional Components
 Useful for components that only consist of a render method
-`function Square(props) {
+```
+function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
       {props.value}
     </button>
   );
-}`
+}
+```
