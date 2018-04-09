@@ -66,6 +66,11 @@ function Square(props) {
   );
 }
 ```
+## Tic tac toe
+https://codepen.io/gaearon/pen/gWWZgR?editors=0010
 
 ## Bind this
 https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
+
+## Further documentation
+https://reactjs.org/docs/react-component.html
