@@ -1,4 +1,4 @@
-var name = 'Adriana', lastname = 'Pineda'
+var name = 'Adriana', lastname = 'Pineda' // assigning 2 variables in the same line
 console.log('Hello ' + name + ' ' + lastname)
 
 // Upper and lowercase
