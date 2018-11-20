@@ -5,6 +5,23 @@
     <title>How does time work</title>
   </head>
   <body>
-    <script src="3-how-does-time-work.js"></script>
+      <!-- src="3-how-does-time-work.js" -->
+    <script>
+      console.log('a')
+      // setTimeout(function() {
+      //   console.log('b')
+      // }, 2000)
+      // As arrow function:
+      setTimeout(() => console.log('b'), 2000)
+      // setTimeout(console.log('b'), 2000) > wrong, this will execute the function immediately
+      console.log('c')
+
+      setTimeout(() => console.log('d'), 2000)
+      // This timeout implies the function will execute at least after 2 seconds
+      // We don't know if we are blocking the Event Loop and the function will take
+      // more than 2 seconds to be executed, as follows
+      // for (var i = 0; i < 10000000000; i ++) {
+      // }
+    </script>
   </body>
 </html>
