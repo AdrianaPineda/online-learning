@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simon Dice</title>
+    <style>
+      body {
+        margin: 0;
+        background: #dedede;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .gameboard {
+        height: 100vh;
+        width: 100vh;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+        max-height: 60vh;
+        max-width: 60vh;
+      }
+
+      .color {
+        width: 50%;
+        height: 50%;
+        display: inline-block;
+      }
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: left;
+      }
+
+      .celeste {
+        background: #22a6b3;
+      }
+
+      .celeste.light {
+        background: #7ed6df;
+      }
+
+      .violeta {
+        background: #be2edd;
+      }
+
+      .violeta.light {
+        background: #e056fd;
+      }
+
+      .naranja {
+        background: #f0932b;
+      }
+
+      .naranja.light {
+        background: #ffbe76;
+      }
+
+      .verde {
+        background: #6ab04c;
+      }
+
+      .verde.light {
+        background: #badc58;
+      }
+
+      .btn-start {
+        width: 400px;
+        height: 100px;
+        background: #ecf0f1;
+        color: #2c3e50;
+        font-size: 2.5rem;
+        position: absolute;
+        top: calc(50% - 50px);
+        left: calc(50% - 200px);
+      }
+
+      .hide {
+        display: none;
+      }
+
+      * {
+        font-family: 'Arial';
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gameboard">
+      <div id="celeste" class="color celeste left" data-color="celeste"></div>
+      <div id="violeta" class="color violeta right" data-color="violeta"></div>
+      <div id="naranja" class="color naranja left" data-color="naranja"></div>
+      <div id="verde" class="color verde right" data-color="verde"></div>
+      <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script>
+      const celeste = document.getElementById('celeste')
+      const violeta = document.getElementById('violeta')
+      const naranja = document.getElementById('naranja')
+      const verde = document.getElementById('verde')
+      const btnEmpezar = document.getElementById('btnEmpezar')
+      const MAX_LEVEL = 10
+
+      class Juego {
+        constructor() {
+          this.inicializar()
+          this.generateSequence()
+          setTimeout(() => this.nextLevel(), 500)
+        }
+
+        inicializar() {
+          this.colorPicked = this.colorPicked.bind(this)
+          this.inicializar = this.inicializar.bind(this)
+          this.toggleBtnEmpezar()
+          this.level = 1
+          this.colors = {
+            celeste,
+            violeta,
+            naranja,
+            verde
+          }
+        }
+
+        toggleBtnEmpezar() {
+          if (btnEmpezar.classList.contains('hide')) {
+            btnEmpezar.classList.remove('hide')
+          } else {
+            btnEmpezar.classList.add('hide')
+          }
+        }
+
+        generateSequence() {
+          this.sequence = new Array(MAX_LEVEL).fill(0).map(element => Math.floor(Math.random() * 4))
+        }
+
+        nextLevel() {
+          this.sublevel = 0
+          this.showSequence()
+          this.addClickEvents()
+        }
+
+        showSequence() {
+          for (let i = 0; i < this.level; i++) {
+            const color = this.transformNumberToColor(this.sequence[i])
+            setTimeout(() => this.highlightColor(color), i*1000)
+          }
+        }
+
+        transformNumberToColor(num) {
+          switch(num) {
+            case 0:
+              return 'celeste'
+            case 1:
+              return 'violeta'
+            case 2:
+              return 'naranja'
+            case 3:
+              return 'verde'
+          }
+        }
+
+        highlightColor(color) {
+          this.colors[color].classList.add('light')
+          setTimeout(() => this.turnOffColor(color), 350)
+        }
+
+        turnOffColor(color) {
+          this.colors[color].classList.remove('light')
+        }
+
+        addClickEvents() {
+          this.colors.celeste.addEventListener('click', this.colorPicked)
+          this.colors.violeta.addEventListener('click', this.colorPicked)
+          this.colors.naranja.addEventListener('click', this.colorPicked)
+          this.colors.verde.addEventListener('click', this.colorPicked)
+        }
+
+        colorPicked(event) {
+          const colorName = event.target.dataset.color
+          this.highlightColor(colorName)
+          const colorNumber = this.transformColorToNumber(colorName)
+          if(colorNumber === this.sequence[this.sublevel]) {
+            this.sublevel++
+            if(this.sublevel === this.level) {
+              this.level++
+              this.deleteClickEvents()
+              if(this.level === (MAX_LEVEL + 1)) {
+                this.userWins()
+              } else {
+                setTimeout(() => this.nextLevel(), 1500)
+              }
+            }
+          } else {
+            this.userLoses()
+          }
+          
+        }
+
+        deleteClickEvents() {
+          this.colors.celeste.removeEventListener('click', this.colorPicked)
+          this.colors.violeta.removeEventListener('click', this.colorPicked)
+          this.colors.naranja.removeEventListener('click', this.colorPicked)
+          this.colors.verde.removeEventListener('click', this.colorPicked)
+        }
+
+        transformColorToNumber(color) {
+          switch(color) {
+            case 'celeste':
+              return 0
+            case 'violeta':
+              return 1
+            case 'naranja':
+              return 2
+            case 'verde':
+              return 3
+          }
+        }
+
+        userWins() {
+          swal("Platzi", "Congrats, you won!", "success")
+            .then(this.inicializar)
+        }
+
+        userLoses() {
+          swal("Platzi", "I'm sorry, you lost!", "error")
+            .then(() => {
+              this.deleteClickEvents()
+              this.inicializar()
+          })
+        }
+
+      }
+
+      function empezarJuego() {
+        window.juego = new Juego()
+      }
+    </script>
+  </body>
+</html>
