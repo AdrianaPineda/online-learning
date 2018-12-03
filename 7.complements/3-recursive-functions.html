@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Recursive functions</title>
+  </head>
+  <body>
+    <script>
+      /*
+      13   |_4___
+
+      13 - 4 = 9    1
+      9 - 4 = 5     1
+      5 - 4 = 1     1
+      1 - 4 = -3
+      */
+     function divide(dividend, divisor) {
+       // Base case
+       if (dividend < divisor) {
+         return 0
+       }
+
+       return 1 + divide(dividend - divisor, divisor)
+     }
+
+     console.log(divide(13, 4))
+
+    </script>
+  </body>
+</html>
