@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="css/styles-9.css">
   </head>
   <body>
-    <header>
+    <header class="header">
       <div>
-        <figure>
+        <figure class="logo">
           <img src="images/logo.png" alt="Logo of Leonidas" />
         </figure>
-        <nav>
+        <nav class="menu">
           <ul>
             <li>
               <a class="link" href="#portfolio">Portfolio</a>
@@ -27,41 +27,44 @@
         </nav>
       </div>
     </header>
-    <section>
+    <section class="hero ">
       <h1>
         Hi, my name is <strong>Adriana</strong> <br/> Javascript developer
       </h1>
       <img src="images/hero.jpg" width="500" alt="principal image of the site"/>
     </section>
-    <section id="portfolio">
+    <!-- Convention: prefer class instead of id -->
+    <section id="portfolio" class="portfolio">
       <h2>Portfolio (Relevant Projects)</h2>
-      <article>
-        <h3>Platzi Video</h3>
-        <h6>React Native / React</h6>
-        <p><small><strong>Date: 01/07/2018</strong></small></p>
-        <p><small><strong>You can see it here:</strong> www.platzi.com/native </small></p>
-        <p>Platzi Video fue el resultado de 3 meses de trabajo para crear la mejor app para enseñar 
+      <article class="project">
+        <h3 class="project-title">Platzi Video</h3>
+        <h6 class="project-course">React Native / React</h6>
+        <p class="date"><small><strong>Date: 01/07/2018</strong></small></p>
+        <p class="project-url"><small><strong>You can see it here:</strong> www.platzi.com/native </small></p>
+        <p class="project-description">Platzi Video fue el resultado de 3 meses de trabajo para crear la mejor app para enseñar 
           el funcionamiento de React y React Native. Desde crear un vista-detalle, hasta patrones 
           avanzados de navegación, este proyecto ha sido el ejemplo de futuros creadores de 
           aplicaciones multiplataforma
         </p>
-        <img src="images/platzi-video-react-native.png" alt="React Native course project" width="500">
+        <figure class="project-imageContainer">
+          <img class="project-image" src="images/platzi-video-react-native.png" alt="React Native course project" width="500">
+        </figure>
       </article>
     </section>
     <section id="events">
       <h2>Más sobre mi experiencia</h2>
-      <article>
-        <figure>
-          <img src="images/platzi-conf.jpg" width="500" />
+      <article class="event">
+        <figure class="event-imageContainer">
+          <img class="event-image" src="images/platzi-conf.jpg" width="500" />
         </figure>
-        <h3>PlatziConf México 2018</h3>
-        <p>El evento más grande sobre gente que quiere aprender más de internet. 
+        <h3 class="event-title">PlatziConf México 2018</h3>
+        <p class="event-description">El evento más grande sobre gente que quiere aprender más de internet. 
           En este evento te comparto cómo tener una vida de constante aprendizaje.</p>
-        <a href="https://www.youtube.com/watch?v=BIS7cWGgJg0" target="_blank">Ver Plática</a>
+        <a class="event-url" href="https://www.youtube.com/watch?v=BIS7cWGgJg0" target="_blank">Ver Plática</a>
       </article>
     </section>
-    <section id="contact">
-      <form action="/suscription/">
+    <section id="contact" class="contact">
+      <form action="/suscription/" class="form-email">
         <h3>Shall we build something together?</h3>
         <!-- <label for="email">Leave us your email</label> `for` is used to set focus on the textfield -->
         <input type="text" placeholder="Leave us your email" id="email" />
@@ -69,6 +72,6 @@
         <button>Send</button>
       </form>
     </section>
-    <footer>footer</footer>
+    <footer class="footer">footer</footer>
   </body>
 </html>
