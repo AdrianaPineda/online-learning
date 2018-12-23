@@ -80,3 +80,30 @@ and will bypass any width property set
 inline-block > respects width
 flex > 
 */
+
+/* When we use flexbox there is no margin collapsing */
+.flexbox {
+  display: flex;
+  /* affects **immediate** children, not children of children ^ */
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  /* caution
+  flex-direction to row will center horizontally with justify-content
+  flex-direction to row will center vertically with align-items
+  flex-direction to column will center horizontally with align-items
+  flex-direction to column will center vertically with justify-content
+  */
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  margin: 1.5px;
+  border: 1px solid red;
+  flex-shrink: 0;
+}

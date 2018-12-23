@@ -24,6 +24,47 @@ h1 strong {
   color: #026fff;
 }
 
+.header {
+  background-color: #1b2127;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  padding: 0 10px;
+}
+
+.menu {
+  height: inherit;
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header ul {
+  display: flex;
+  height: inherit;
+}
+
+.header ul li {
+  height: inherit;
+}
+
+figure {
+  margin: 0;
+}
+
 .hero {
   height: 300px;
   background-color: #1b2127;
@@ -31,6 +72,8 @@ h1 strong {
   background-size: 500px 300px;
   background-repeat: no-repeat;
   background-position-x: right;
+  display: flex;
+  align-items: center;
 }
 
 .portfolio {
@@ -61,16 +104,6 @@ h1 strong {
   display: inline-block;
 }
 
-.header {
-  background-color: #1b2127;
-  color: white;
-}
-
-.header a {
-  color: white;
-  text-decoration: none;
-}
-
 /* Displays
 none > won't show
 block > elements will tend to occupy all width available
@@ -80,3 +113,46 @@ and will bypass any width property set
 inline-block > respects width
 flex > 
 */
+
+/* When we use flexbox there is no margin collapsing */
+.flexbox {
+  display: flex;
+  /* affects **immediate** children, not children of children ^ */
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  /* caution
+  flex-direction to row will center horizontally with justify-content
+  flex-direction to row will center vertically with align-items
+  flex-direction to column will center horizontally with align-items
+  flex-direction to column will center vertically with justify-content
+  */
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  margin: 1.5px;
+  border: 1px solid red;
+  flex-shrink: 0;
+}
+
+.footer {
+  background-color: #1b2127;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer img {
+  vertical-align: middle;
+}
+
+.footer a {
+  color: white;
+}
