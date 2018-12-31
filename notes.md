@@ -8,21 +8,36 @@
 ## Git Commands
 Untracked files: files in working directory
 
-git add -A: adds all files to staging area
+**git add -A**: adds all files to staging area
 
-git rm -f: removes a file from the staging area and from the working directory
+**git rm -f**: removes a file from the staging area and from the working directory
 
-git add -n == git add --dry-run: shows if the file exists but doesn't add it
+**git add -n == git add --dry-run**: shows if the file exists but doesn't add it
 
-git tag -a _version_ -m "message": annotated tag
+**git tag -a _version_ -m "message"**: annotated tag
 
-git tag _version_ _sha_: lightweight tag
+**git tag _version_ _sha_**: lightweight tag
 
-git tag -f -a _version_ -m "message" _sha_: replace lightweight tag
+**git tag -f -a _version_ -m "message" _sha_**: replace lightweight tag
 
-git log --oneline: sha(short) + message
+**git log --oneline**: sha(short) + message
 
-git log --oneline --graph: sha(short) + message + graph
+**git log --oneline --graph**: sha(short) + message + graph
 
-git log -3: last 3 commits
+**git log -3**: last 3 commits
 
+**git diff _sha_**: difference between sha and the current state
+
+**git diff _sha1_ _sha2_**: difference between sha1 and sha2
+
+**git reset --soft _sha_**: removes commits after _sha_ and it leaves files changed in those commits in the staging area
+
+**git reset --mixed _sha_**: removes commits after _sha_ and it leaves files changed in those commits in the working directory (i.e. it doesn't leave them in the staging area as the reset --soft)
+
+**git reset --hard**:
+- removes all files from the staging area and from the working directory
+- untracked files in the working directory won't be affected
+
+**git reset --hard _sha_**:
+- removes commits after _sha_ altogether.
+- if the sha is from a commit removed with this command, it will put back the commits until the _sha_
