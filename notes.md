@@ -5,6 +5,8 @@
 
 [optional] git config --global color.ui true
 
+[optional] git config --global core.editor [vim | "atom --wait"]
+
 ## Git Commands
 Untracked files: files in working directory
 
@@ -41,3 +43,15 @@ Untracked files: files in working directory
 **git reset --hard _sha_**:
 - removes commits after _sha_ altogether.
 - if the sha is from a commit removed with this command, it will put back the commits until the _sha_
+
+**git branch -[d|D]**: removes branch
+
+**git branch -m _old_branch_name_ _new_branch_name_**: rename branch
+
+**git stash apply**: apply latest stash to the current branch
+https://git-scm.com/book/en/v1/Git-Tools-Stashing
+
+**git rebase _branch_**: https://git-scm.com/docs/git-rebase
+
+## Github pages
+Hosts static code
