@@ -1,20 +1,15 @@
 import React from 'react';
 import Media from './3-media';
 import './playlist.css';
-import Play from '../../icons/components/play';
 
 function Playlist(props) {
-  console.log(props.data);
-  const playlist = props.data.categories[0].playlist
+  // console.log(props.data);
+  // const playlist = props.data.categories[0].playlist
   
   return(
     <div className="Playlist">
-      <Play 
-        size={50}
-        color="red"
-      />
       {
-        playlist.map((item) => {
+        props.playlist.map((item) => {
           //return <Media title={item.title} key={item.id} image={item.cover}/>
           // We need to return ^
           // Each child in an array or iterator should have a unique "key" prop > needed
