@@ -144,6 +144,17 @@ Why do we have those two types of components:
 - To separate responsibilities
 - Allows for component reuse
 
+## Portals
+- Allows another component to be added to index.html different than `app`
+
+~~~
+import { createPortal } from 'react-dom';
+...
+createPortal()
+~~~
+
+Checkout modal.js inside src/widgets/containers
+
 ## Project structure
 See structure.png
 
