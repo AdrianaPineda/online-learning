@@ -155,6 +155,9 @@ createPortal()
 
 Checkout modal.js inside src/widgets/containers
 
+## Error handling
+componentDidCatch(error, info) { ... }
+
 ## Project structure
 See structure.png
 
