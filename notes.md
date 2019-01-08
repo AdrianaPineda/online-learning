@@ -29,6 +29,10 @@ Config: webpack.config.js
 ## JSX
 Javascript as XML
 
+## Others
+- We use className instead of class, because class is a reserved word
+- We we have more than one property of a component, indent enhances visibility
+
 ## DOM events
 To link methods with our class > bind
 
