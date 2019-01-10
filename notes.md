@@ -162,6 +162,12 @@ Checkout modal.js inside src/widgets/containers
 ## Error handling
 componentDidCatch(error, info) { ... }
 
+## Debugging errors
+Inside webpack config:
+~~~
+devtool: 'eval-source-map',
+~~~
+
 ## Project structure
 See structure.png
 

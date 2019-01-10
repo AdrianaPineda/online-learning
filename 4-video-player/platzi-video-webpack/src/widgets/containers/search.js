@@ -34,8 +34,9 @@ class SearchContainer extends Component {
 
   handleInputChange = event => {
     this.setState({
-      value: event.target.value.replace(' ', '-')
-      // We can transform here
+      value: event.target.value
+      // We can transform here, for example
+      // value: event.target.value.replace(' ', '-')
     })
   }
 }
