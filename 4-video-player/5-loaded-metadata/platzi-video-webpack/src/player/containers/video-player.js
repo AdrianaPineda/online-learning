@@ -8,6 +8,7 @@ import Controls from '../components/video-player-controls';
 import ProgressBar from '../components/progress-bar';
 import Spinner from '../components/spinner';
 import Volume from '../components/volume';
+import FullScreen from '../components/full-screen';
 
 class VideoPlayer extends Component {
 
@@ -17,7 +18,8 @@ class VideoPlayer extends Component {
     currentTime: 0,
     loading: false,
     lastVolume: 0,
-    volume: 1
+    volume: 1,
+    fullScreen: false
   }
 
   componentDidMount() {
@@ -69,17 +71,31 @@ class VideoPlayer extends Component {
   }
 
   handleVolumeIconClicked = () => {
+    this.video.volume = this.state.lastVolume
+
     this.setState({
       lastVolume: this.state.volume,
       volume: this.state.volume === 0 ? this.state.lastVolume : 0,
     })
+  }
 
-    this.video.volume = this.state.lastVolume
+  handleFullScreenClicked = event => {
+    if (!document.webkitIsFullScreen) {
+      this.player.webkitRequestFullscreen()
+    } else {
+      document.webkitExitFullscreen()
+    }
+  }
+  
+  setRef = element => {
+    this.player = element
   }
 
   render() {
     return(
-      <VideoPlayerLayout>
+      <VideoPlayerLayout
+        setRef={this.setRef}
+      >
         <Title 
           title="This is a cool video"
         />
@@ -101,6 +117,9 @@ class VideoPlayer extends Component {
             handleVolumeChange={this.handleVolumeChange}
             handleVolumeIconClicked={this.handleVolumeIconClicked}
             value={this.state.volume}
+          />
+          <FullScreen 
+            handleFullScreenClicked={this.handleFullScreenClicked}
           />
         </Controls>
         <Spinner 
