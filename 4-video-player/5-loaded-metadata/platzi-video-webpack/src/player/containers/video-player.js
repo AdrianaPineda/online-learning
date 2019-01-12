@@ -16,6 +16,7 @@ class VideoPlayer extends Component {
     duration: 0,
     currentTime: 0,
     loading: false,
+    lastVolume: 0,
     volume: 1
   }
 
@@ -67,12 +68,13 @@ class VideoPlayer extends Component {
     })
   }
 
-  handleVolumeIconClicked = event => {
-    if (this.video.volume === 0) {
-      this.video.volume = this.state.volume;
-    } else {
-      this.video.volume = 0;
-    }
+  handleVolumeIconClicked = () => {
+    this.setState({
+      lastVolume: this.state.volume,
+      volume: this.state.volume === 0 ? this.state.lastVolume : 0,
+    })
+
+    this.video.volume = this.state.lastVolume
   }
 
   render() {
@@ -98,6 +100,7 @@ class VideoPlayer extends Component {
           <Volume 
             handleVolumeChange={this.handleVolumeChange}
             handleVolumeIconClicked={this.handleVolumeIconClicked}
+            value={this.state.volume}
           />
         </Controls>
         <Spinner 

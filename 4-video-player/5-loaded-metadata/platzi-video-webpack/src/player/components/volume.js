@@ -22,6 +22,7 @@ function Volume(props) {
           max={1}
           step={.05}
           onChange={props.handleVolumeChange}
+          value={props.value}
         />
       </div>
     </button>
