@@ -32,6 +32,7 @@ Javascript as XML
 ## Others
 - We use className instead of class, because class is a reserved word
 - We we have more than one property of a component, indent enhances visibility
+- The volume inside media elements in HTML5 works with values between 0 and 1
 
 ## DOM events
 To link methods with our class > bind
