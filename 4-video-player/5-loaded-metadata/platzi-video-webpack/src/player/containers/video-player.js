@@ -7,6 +7,7 @@ import Timer from '../components/timer';
 import Controls from '../components/video-player-controls';
 import ProgressBar from '../components/progress-bar';
 import Spinner from '../components/spinner';
+import Volume from '../components/volume';
 
 class VideoPlayer extends Component {
 
@@ -14,7 +15,8 @@ class VideoPlayer extends Component {
     pause: true,
     duration: 0,
     currentTime: 0,
-    loading: false
+    loading: false,
+    volume: 1
   }
 
   componentDidMount() {
@@ -54,6 +56,25 @@ class VideoPlayer extends Component {
     })
   }
 
+  handleVolumeChange = event => {
+    const volume = event.target.value;
+    this.video.volume = volume;
+    // We could alternatively set a state for the volume and let the video handle 
+    // it (in componentWillReceiveProps), but it add more logic in there
+
+    this.setState({
+      volume: volume
+    })
+  }
+
+  handleVolumeIconClicked = event => {
+    if (this.video.volume === 0) {
+      this.video.volume = this.state.volume;
+    } else {
+      this.video.volume = 0;
+    }
+  }
+
   render() {
     return(
       <VideoPlayerLayout>
@@ -73,6 +94,10 @@ class VideoPlayer extends Component {
             duration={this.state.duration}
             value={this.state.currentTime}
             handleProgressChange={this.handleProgressChange}
+          />
+          <Volume 
+            handleVolumeChange={this.handleVolumeChange}
+            handleVolumeIconClicked={this.handleVolumeIconClicked}
           />
         </Controls>
         <Spinner 
