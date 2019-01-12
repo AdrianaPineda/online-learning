@@ -168,6 +168,9 @@ Inside webpack config:
 devtool: 'eval-source-map',
 ~~~
 
+## Media events
+https://reactjs.org/docs/events.html#media-events
+
 ## Project structure
 See structure.png
 
