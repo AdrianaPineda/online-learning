@@ -97,7 +97,7 @@ class VideoPlayer extends Component {
         setRef={this.setRef}
       >
         <Title 
-          title="This is a cool video"
+          title={this.props.title}
         />
         <Controls>
           <PlayPause 
@@ -132,7 +132,7 @@ class VideoPlayer extends Component {
           handleTimeUpdate={this.handleTimeUpdate}
           handleSeeking={this.handleSeeking}
           handleSeeked={this.handleSeeked}
-          src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+          src={this.props.src}
         />
       </VideoPlayerLayout>
     )
@@ -146,3 +146,6 @@ class VideoPlayer extends Component {
 }
 
 export default VideoPlayer;
+
+// We are only using 2 videos, and if we click on a different title that has the same video it won't reload the video
+// because react detects the src hasn't changed

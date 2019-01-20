@@ -10,7 +10,7 @@ class Media extends PureComponent {
 
   render() {
     return(
-      <div className="Media" onClick={this.props.handleOpenModal}>
+      <div className="Media" onClick={this.handleClick}>
         <div className="Media-cover">
           <img 
             className="Media-image"
@@ -26,12 +26,9 @@ class Media extends PureComponent {
     )
   }
 
-  // Changed to be received from home.js > onClick={this.props.handleOpenModal}
-  // handleClick = (event) => {
-  //   this.setState({
-  //     author: 'Someone else'
-  //   })
-  // }
+  handleClick = (event) => {
+    this.props.handleOpenModal(this.props)
+  }
 
 }
 

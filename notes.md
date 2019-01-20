@@ -17,6 +17,8 @@ Proptypes: npm install prop-types --save
 
 https://reactjs.org/docs/typechecking-with-proptypes.html
 
+Project sample: https://github.com/LeonidasEsteban/platzi-video/
+
 ## Webpack
 Config: webpack.config.js
 
