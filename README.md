@@ -94,11 +94,17 @@ const reducer = function(
 ```
 Tip: make state immutable like: `return [...state, { title: action.payload }]`
 
-## Examples:
+## Installation:
+
+`npm install --save react-redux`
+
+## Code:
 
 Provider: high order component. Like a mixin.
 - A provider extends functions, properties, etc to its children. In this case it will extend the store to its children
+- The function `mapStateToProps` is also a high order component: will send new properties to the component
 
+In the entries file:
 ```
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
@@ -116,4 +122,30 @@ const store = createStore(
   initialState,
   enhancer
 )
+
+...
+render(
+  <Provider store={store}>
+    <Home />
+    {/* <p>Hello</p> */}
+  </Provider>
+  ,
+  homeContainer
+)
+
+```
+
+In the components
+```
+import { connect } from 'react-redux'
+...
+
+function mapStateToProps(state, props) {
+  return {
+    categories: state.data.categories
+  }
+}
+
+export default connect(mapStateToProps)(Home);
+
 ```

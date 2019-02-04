@@ -27,8 +27,8 @@ const homeContainer = document.getElementById('home-container')
 // Provider: high order component
 render(
   <Provider store={store}>
-    {/* <Home /> */}
-    <p>Hello</p>
+    <Home />
+    {/* <p>Hello</p> */}
   </Provider>
   ,
   homeContainer
