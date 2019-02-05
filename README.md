@@ -97,6 +97,7 @@ Tip: make state immutable like: `return [...state, { title: action.payload }]`
 ## Installation:
 
 `npm install --save react-redux`
+`npm install --save redux`
 
 ## Code:
 
@@ -110,6 +111,15 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 ...
 
+// This method can be added in another file (see reducers/data.js)
+const reducer = (state, action) => {
+    switch (action.type) {
+        case ...
+            return ...
+        default:
+            return state
+  }
+}
 
 const initialState = {
   ....
@@ -149,3 +159,25 @@ function mapStateToProps(state, props) {
 export default connect(mapStateToProps)(Home);
 
 ```
+
+Dispatch actions
+- With the store
+- With connect: the component will receive a `dispatch` method in his properties
+
+```
+import { connect } from 'react-redux'
+
+...
+
+ this.props.dispatch({
+     type: 'SEARCH_VIDEO',
+     payload: {
+         query: this.input.value
+     }
+})
+
+...
+export default connect()(SearchContainer);
+```
+
+Components with state (inside containers) are the ones that connect to the store

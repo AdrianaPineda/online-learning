@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from '../components/search';
+import { connect } from 'react-redux'
 
 class SearchContainer extends Component {
 
@@ -26,6 +27,12 @@ class SearchContainer extends Component {
     // 1) document.getElementById (not the best option)
     // 2) function through props: see setRef, it will be assigned in ref in input
     
+    this.props.dispatch({
+      type: 'SEARCH_VIDEO',
+      payload: {
+        query: this.input.value
+      }
+    })
   }
 
   setRef = element => {
@@ -41,4 +48,4 @@ class SearchContainer extends Component {
   }
 }
 
-export default SearchContainer;
+export default connect()(SearchContainer);
