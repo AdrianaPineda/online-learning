@@ -97,6 +97,7 @@ Tip: make state immutable like: `return [...state, { title: action.payload }]`
 ## Installation:
 
 `npm install --save react-redux`
+
 `npm install --save redux`
 
 ## Code:
@@ -161,7 +162,18 @@ export default connect(mapStateToProps)(Home);
 ```
 
 Dispatch actions
-- With the store
+- With the store:
+```
+store.dispatch({
+    type: 'ADD_SONG',
+    payload: {
+      title
+    }
+})
+```
+
+OR
+
 - With connect: the component will receive a `dispatch` method in his properties
 
 ```
