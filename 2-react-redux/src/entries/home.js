@@ -9,9 +9,9 @@ import reducer from '../reducers/data';
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 const initialState = {
   data: {
-    ...data,
-    search: []
-  }
+    ...data
+  },
+  search: []
 }
 
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
