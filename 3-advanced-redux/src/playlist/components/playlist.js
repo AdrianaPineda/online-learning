@@ -1,5 +1,5 @@
 import React from 'react';
-import Media from './media';
+import MediaContainer from '../containers/media';
 import './playlist.css';
 
 function Playlist(props) {
@@ -9,7 +9,7 @@ function Playlist(props) {
   return(
     <div className="Playlist">
       {
-        props.playlist.map((item) => {
+        props.playlist.map((mediaId) => {
           //return <Media title={item.title} key={item.id} image={item.cover}/>
           // We need to return ^
           // Each child in an array or iterator should have a unique "key" prop > needed
@@ -18,7 +18,7 @@ function Playlist(props) {
           // Alternatively, we could use the spread operator 
           // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
           // to send all values to Media (will send one property for each element of item)
-          return <Media key={item.id} {...item} handleOpenModal={props.handleOpenModal}/>
+          return <MediaContainer key={mediaId} id={mediaId} handleOpenModal={props.handleOpenModal}/>
         })
       }
     </div>
