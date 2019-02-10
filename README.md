@@ -193,3 +193,8 @@ export default connect()(SearchContainer);
 ```
 
 Components with state (inside containers) are the ones that connect to the store
+
+## Normalizing data
+Improves performance
+
+- Source: https://github.com/paularmstrong/normalizr

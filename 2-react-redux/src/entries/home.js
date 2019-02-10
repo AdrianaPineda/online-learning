@@ -5,6 +5,9 @@ import data from '../api.json'
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from '../reducers/data';
+import normalizedData from '../schemas/index.js';
+
+console.log(normalizedData)
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 const initialState = {
