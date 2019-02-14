@@ -94,6 +94,33 @@ const reducer = function(
 ```
 Tip: make state immutable like: `return [...state, { title: action.payload }]`
 
+We can set the initial state as follows:
+```
+// reducer_function_name.js
+function reducer_function_name(state = {visibility: false, mediaId: null}, action) {
+  ...
+}
+
+export default modal
+```
+
+- How do we merge/combine several reducers?
+
+```
+// index.js
+import data from '../reducers/data';
+import modal from '../reducers/modal';
+import { combineReducers } from 'redux';
+
+const rootReducer = combineReducers({
+  data,
+  modal
+})
+
+export default rootReducer
+```
+
+
 ## Installation:
 
 `npm install --save react-redux`
