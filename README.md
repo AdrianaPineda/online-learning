@@ -225,3 +225,23 @@ Components with state (inside containers) are the ones that connect to the store
 Improves performance
 
 - Source: https://github.com/paularmstrong/normalizr
+
+## Multiple Reducers
+- TODO
+
+## Immutable Data
+- https://github.com/gajus/redux-immutable
+- https://facebook.github.io/immutable-js/
+
+`npm install immutable redux-immutable --save`
+
+What do we want to be immutable? A/ Our state. We need to make everything immutable (initial state from home, and in each reducer)
+
+Most used immutable data structures: Lists (replace arrays) and maps (replace objects)
+
+Our rootReducer is not immutable yet, so we use `import { combineReducers } from 'redux-immutable';`
+
+Access to the state is different now > `state.data` now is `state.get('data')`
+- New objects are created when we do `get('xyz')` burt this is highly optimized
+- toJS() generates a new object every time we render the component
+- Our objects are now maps (due to the immutability support)

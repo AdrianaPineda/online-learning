@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import reducer from '../reducers/index';
 import data from '../schemas/index.js';
 
+import { Map as map } from 'immutable'
+
 console.log(data)
 // console.log(normalizedData)
 
@@ -28,7 +30,7 @@ const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_
 
 const store = createStore(
   reducer,
-  {},
+  map(),
   enhancer
 )
 
