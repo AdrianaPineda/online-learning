@@ -69,6 +69,7 @@ store.dispatch({
 - Pure function
 - There could be more than one reducer in an app, but there must be just one store
 - Returns the next state
+- We should keep them as simple as possible
 
 ### A reducer must never:
 - Modify its arguments
@@ -238,6 +239,8 @@ Improves performance
 What do we want to be immutable? A/ Our state. We need to make everything immutable (initial state from home, and in each reducer)
 
 Most used immutable data structures: Lists (replace arrays) and maps (replace objects)
+- Objects in immutable are maps
+- Arrays in immutable are lists
 
 Our rootReducer is not immutable yet, so we use `import { combineReducers } from 'redux-immutable';`
 
