@@ -198,3 +198,6 @@ Components with state (inside containers) are the ones that connect to the store
 Improves performance
 
 - Source: https://github.com/paularmstrong/normalizr
+
+## Multiple reducers
+- We can have one reducer per key we have in our state

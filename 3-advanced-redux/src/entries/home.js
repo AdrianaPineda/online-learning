@@ -15,9 +15,13 @@ const initialState = {
   data: {
     // ...data
     entities: data.entities,
-    categories: data.result.categories
+    categories: data.result.categories,
+    search: [],
   },
-  search: []
+  modal: {
+    visibility: false,
+    mediaId: null
+  }
 }
 
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
