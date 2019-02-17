@@ -1,4 +1,15 @@
-function data(state, action) {
+import schema from '../schemas/index.js';
+import { fromJS } from 'immutable'
+
+const initialState = fromJS({
+  entities: schema.entities,
+  categories: schema.result.categories,
+  search: []
+})
+
+// No `data` key needed there ^ because in the combine reducers function we are doing it
+
+function data(state = initialState, action) {
   switch(action.type) {
     case 'SEARCH_VIDEO': {
       let filteredPlaylists = []

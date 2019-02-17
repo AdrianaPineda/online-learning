@@ -4,31 +4,33 @@ import Home from '../pages/containers/home';
 // import data from '../api.json'
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from '../reducers/data';
+import reducer from '../reducers/index';
 import data from '../schemas/index.js';
+
+import { Map as map } from 'immutable'
 
 console.log(data)
 // console.log(normalizedData)
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-const initialState = {
-  data: {
-    // ...data
-    entities: data.entities,
-    categories: data.result.categories,
-    search: [],
-  },
-  modal: {
-    visibility: false,
-    mediaId: null
-  }
-}
+// const initialState = {
+//   data: {
+//     // ...data
+//     entities: data.entities,
+//     categories: data.result.categories,
+//     search: []
+//   },
+//   modal: {
+//     visibility: false,
+//     mediaId: null
+//   }
+// }
 
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 const store = createStore(
   reducer,
-  initialState,
+  map(),
   enhancer
 )
 
