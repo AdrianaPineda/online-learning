@@ -248,3 +248,16 @@ Access to the state is different now > `state.data` now is `state.get('data')`
 - New objects are created when we do `get('xyz')` burt this is highly optimized
 - toJS() generates a new object every time we render the component
 - Our objects are now maps (due to the immutability support)
+
+How to set several state values?
+
+```
+state.merge({
+  key1: '',
+  key2: ''
+})
+
+OR
+
+state.set('key1', '').set('key2', '')
+```
