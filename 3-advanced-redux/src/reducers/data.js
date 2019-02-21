@@ -11,7 +11,7 @@ const initialState = fromJS({
 
 function data(state = initialState, action) {
   switch(action.type) {
-    case 'SEARCH_VIDEO': {
+    case 'SEARCH_ENTITIES': {
       // let filteredPlaylists = []
       // if (action.payload.query) {
       //   const query = action.payload.query.toLowerCase()

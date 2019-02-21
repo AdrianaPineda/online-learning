@@ -261,3 +261,7 @@ OR
 
 state.set('key1', '').set('key2', '')
 ```
+
+## Actions creators
+- Functions that have actions and return the action object
+- We can have a file with all actions, or a file per each reducer

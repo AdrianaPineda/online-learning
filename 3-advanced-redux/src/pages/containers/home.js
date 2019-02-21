@@ -8,6 +8,7 @@ import HandleError from '../../error/containers/handle-error'
 import VideoPlayer from '../../player/containers/video-player'
 import { connect } from 'react-redux'
 import { List as list } from 'immutable'
+import { openModal, closeModal } from '../../actions/index'
 
 class Home extends Component {
 
@@ -51,9 +52,12 @@ class Home extends Component {
     // this.setState({
     //   isModalVisible: false,
     // })
-    this.props.dispatch({
-      type: 'CLOSE_MODAL'
-    })
+
+    this.props.dispatch(closeModal())
+    // Now imported from actions file: // Using action creator
+    // this.props.dispatch({
+    //   type: 'CLOSE_MODAL'
+    // })
   }
 
   handleOpenModal = (media) => {
@@ -61,12 +65,15 @@ class Home extends Component {
     //   isModalVisible: true,
     //   media // key and value are named the same
     // })
-    this.props.dispatch({
-      type: 'OPEN_MODAL',
-      payload: {
-        mediaId: media
-      }
-    })
+
+    this.props.dispatch(openModal(media))
+    // Now imported from actions file: // Using action creator
+    // this.props.dispatch({
+    //   type: 'OPEN_MODAL',
+    //   payload: {
+    //     mediaId: media
+    //   }
+    // })
   }
 
 }
