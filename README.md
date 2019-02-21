@@ -274,7 +274,7 @@ import { bindActionCreators } from 'redux'
 
 // ...
 
-this.props.actions(closeModal())
+this.props.actions.closeModal()
 
 // ...
 

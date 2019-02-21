@@ -56,7 +56,7 @@ class Home extends Component {
     // })
 
     // bindActionCreators:
-    this.props.actions(closeModal())
+    this.props.actions.closeModal()
     // this.props.dispatch(closeModal()) // commented out because we will be using redux bindActionCreators
 
     // Now imported from actions file: // Using action creator
@@ -72,7 +72,7 @@ class Home extends Component {
     // })
 
     // bindActionCreators:
-    this.props.actions(openModal(media))
+    this.props.actions.openModal(media)
     // this.props.dispatch(openModal(media)) // commented out because we will be using redux bindActionCreators
 
     // Now imported from actions file: // Using action creator
