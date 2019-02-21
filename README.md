@@ -265,3 +265,24 @@ state.set('key1', '').set('key2', '')
 ## Actions creators
 - Functions that have actions and return the action object
 - We can have a file with all actions, or a file per each reducer
+
+## Binding action creators
+- Redux has a function named 'bindActionCreators' that receives a group of actions and combines them with the dispatch
+
+```
+import { bindActionCreators } from 'redux'
+
+// ...
+
+this.props.actions(closeModal())
+
+// ...
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
+```

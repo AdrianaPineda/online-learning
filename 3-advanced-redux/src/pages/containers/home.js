@@ -8,7 +8,9 @@ import HandleError from '../../error/containers/handle-error'
 import VideoPlayer from '../../player/containers/video-player'
 import { connect } from 'react-redux'
 import { List as list } from 'immutable'
-import { openModal, closeModal } from '../../actions/index'
+import * as actions from '../../actions/index'
+// ^ importing all actions
+import { bindActionCreators } from 'redux'
 
 class Home extends Component {
 
@@ -53,7 +55,10 @@ class Home extends Component {
     //   isModalVisible: false,
     // })
 
-    this.props.dispatch(closeModal())
+    // bindActionCreators:
+    this.props.actions(closeModal())
+    // this.props.dispatch(closeModal()) // commented out because we will be using redux bindActionCreators
+
     // Now imported from actions file: // Using action creator
     // this.props.dispatch({
     //   type: 'CLOSE_MODAL'
@@ -66,7 +71,10 @@ class Home extends Component {
     //   media // key and value are named the same
     // })
 
-    this.props.dispatch(openModal(media))
+    // bindActionCreators:
+    this.props.actions(openModal(media))
+    // this.props.dispatch(openModal(media)) // commented out because we will be using redux bindActionCreators
+
     // Now imported from actions file: // Using action creator
     // this.props.dispatch({
     //   type: 'OPEN_MODAL',
@@ -104,4 +112,10 @@ function mapStateToProps(state, props) {
   }
 }
 
-export default connect(mapStateToProps)(Home);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
