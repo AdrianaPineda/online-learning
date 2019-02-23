@@ -2,7 +2,7 @@ import React from 'react'; // build components
 import { render } from 'react-dom'; // render components
 import Home from '../pages/containers/home';
 // import data from '../api.json'
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from '../reducers/index';
 import data from '../schemas/index.js';
@@ -26,7 +26,31 @@ console.log(data)
 //   }
 // }
 
-const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// Middleware:
+function logger({ getState, dispatch }) {
+  return (next) => {
+    return (action) => {
+      console.log('This is my old state', getState().toJS())
+      console.log('We are going to execute this action', action)
+      const value = next(action)
+      console.log('This is my new state', getState().toJS())
+      return value
+    }
+  }
+}
+
+// With ECMAScript 6
+const loggerES6 = ({ getState, dispatch }) => next => action => {
+  console.log('This is my old state', getState().toJS())
+      console.log('We are going to execute this action', action)
+      const value = next(action)
+      console.log('This is my new state', getState().toJS())
+      return value
+}
+
+// const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// const enhancer = applyMiddleware(logger)
+const enhancer = applyMiddleware(loggerES6)
 
 const store = createStore(
   reducer,

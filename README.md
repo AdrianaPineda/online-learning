@@ -286,3 +286,34 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 ```
+
+## Action types
+- We want to avoid having duplicated code in the reducers and in the action creators
+- See folder action-types
+
+## Middlewares
+- A way to intercept React/Readux to do something additional (as devtools) -> enhancer
+- Middlewares are functions that receive dispatch and getState (as arguments) from the store and return a function. The function that it returns will receive a method to dispatch the next middleware and returns a function that receives an action and calls next(action)
+
+```
+import { applyMiddleware } from 'redux';
+
+// ...
+
+function middleware_function_name({ getState, dispatch}) {
+  return (next) => {
+    return (action) => {
+      return next(action)
+    }
+  }
+}
+
+const enhancer = applyMiddleware(middleware_function_name)
+
+const store = createStore(
+  reducer,
+  map(),
+  enhancer
+)
+
+```
