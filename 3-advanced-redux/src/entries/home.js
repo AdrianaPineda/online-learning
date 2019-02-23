@@ -6,6 +6,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from '../reducers/index';
 import data from '../schemas/index.js';
+import logger from 'redux-logger';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { Map as map } from 'immutable'
 
@@ -27,7 +29,7 @@ console.log(data)
 // }
 
 // Middleware:
-function logger({ getState, dispatch }) {
+function loggerManual({ getState, dispatch }) {
   return (next) => {
     return (action) => {
       console.log('This is my old state', getState().toJS())
@@ -49,8 +51,16 @@ const loggerES6 = ({ getState, dispatch }) => next => action => {
 }
 
 // const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// const enhancer = applyMiddleware(loggerManual)
+// const enhancer = applyMiddleware(loggerES6)
 // const enhancer = applyMiddleware(logger)
-const enhancer = applyMiddleware(loggerES6)
+
+const enhancer = composeWithDevTools(
+  applyMiddleware(
+    logger, // executed second
+    loggerES6 // executed first
+  )
+) // middlewares
 
 const store = createStore(
   reducer,

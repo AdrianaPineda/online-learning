@@ -12,6 +12,8 @@ Redux is a predictable state container for Javascript apps.
 
 UI > triggers > Actions > sent to > Reducer > updates > Store > contains > State > defines > UI
 
+- References: https://github.com/xgrommx/awesome-redux
+
 ## Principles
 1) Single source of truth
 - A single page application should have only 1 store
@@ -315,5 +317,30 @@ const store = createStore(
   map(),
   enhancer
 )
+```
+
+### Multiple middlewares
+
+References: 
+- https://github.com/xgrommx/awesome-redux
+
+- We are going to use some community resources, for example: https://github.com/LogRocket/redux-logger
+
+Now, using multiple middlewares
+
+Source: https://github.com/zalmoxisus/redux-devtools-extension
+1) npm install --save-dev redux-devtools-extension
+2) Code:
+```
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+// ...
+
+const enhancer = composeWithDevTools(
+  applyMiddleware(
+    logger, // executed second
+    loggerES6 // executed first
+  )
+) // middlewares
 
 ```
