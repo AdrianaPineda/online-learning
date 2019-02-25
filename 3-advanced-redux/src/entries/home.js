@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import reducer from '../reducers/index';
 import data from '../schemas/index.js';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { Map as map } from 'immutable'
@@ -58,7 +59,8 @@ const loggerES6 = ({ getState, dispatch }) => next => action => {
 const enhancer = composeWithDevTools(
   applyMiddleware(
     logger, // executed second
-    loggerES6 // executed first
+    loggerES6, // executed first: https://medium.com/@juinchiu/how-does-applymiddleware-work-in-redux-4a00e1432e1f
+    thunk
   )
 ) // middlewares
 

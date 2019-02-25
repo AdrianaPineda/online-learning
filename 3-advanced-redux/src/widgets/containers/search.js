@@ -34,7 +34,10 @@ class SearchContainer extends Component {
     // this.props.dispatch(searchEntities(this.input.value))
 
     // Using bindActionCreators:
-    this.props.actions.searchEntities(this.input.value)
+    // this.props.actions.searchEntities(this.input.value)
+
+    // Using async
+    this.props.actions.searchAsyncEntities(this.input.value)
 
     // this.props.dispatch({
     //   type: 'SEARCH_VIDEO',

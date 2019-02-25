@@ -344,3 +344,51 @@ const enhancer = composeWithDevTools(
 ) // middlewares
 
 ```
+## Async actions
+There are 2 ways of handling asynchronous actions:
+1) redux-thunk (middleware): manage async flows from inside the actions
+2) Manage async flows from outside of the actions
+Example of 2)
+```
+handleSubmit = event => {
+  fetch(`https://....`).then((data) => {
+    this.props.actions.searchEntities(...)
+  })
+}
+```
+
+- When we send an action, we can return a function. That function will have as parameter the dispatch
+
+Steps:
+1) npm install redux-thunk --save
+2) See below:
+```
+import thunk from 'redux-thunk'
+
+// ...
+
+const enhancer = composeWithDevTools(
+  applyMiddleware(
+    logger,
+    loggerES6,
+    thunk
+  )
+)
+
+const store = createStore(
+  reducer,
+  map(),
+  enhancer
+)
+
+// ...
+export function searchAsyncEntities(query) {
+  return (dispatch) => {
+    // Mimic an api request delay:
+    setTimeout(() => {
+      dispatch(searchEntities(query))
+    },
+    5000)
+  }
+}
+```
