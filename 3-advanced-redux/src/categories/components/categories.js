@@ -9,6 +9,9 @@ function Categories(props) {
   return(
     <div className="Categories">
     <Search />
+    { props.isLoading &&
+      <p>Loading your favorite videos ...</p>
+    }
     {
       props.search.map((item) => { // item is now a map (due to the immutability support)
         return <Media openModal={props.handleOpenModal} key={item.get('id')} {...item.toJS()}/> // toJS() generates a new object every time we render the component

@@ -247,7 +247,7 @@ Most used immutable data structures: Lists (replace arrays) and maps (replace ob
 Our rootReducer is not immutable yet, so we use `import { combineReducers } from 'redux-immutable';`
 
 Access to the state is different now > `state.data` now is `state.get('data')`
-- New objects are created when we do `get('xyz')` burt this is highly optimized
+- New objects are created when we do `get('xyz')` but this is highly optimized
 - toJS() generates a new object every time we render the component
 - Our objects are now maps (due to the immutability support)
 
@@ -394,3 +394,4 @@ export function searchAsyncEntities(query) {
 ```
 
 ## Load states
+- Before a long running task starts, we are going to dispatch another action to let my UI know about this. And when it ends we need to dispatch another action to let the UI know as well.
