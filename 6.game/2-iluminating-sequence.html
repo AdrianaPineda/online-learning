@@ -130,6 +130,7 @@
             const color = this.transformNumberToColor(this.sequence[i])
             // `color` should be declared as let so the timeout block
             // knows about it. let variables are limited in scope to the block
+            // It also signals that the let variable will be used only in the block it’s defined in
             // If we declared it as var, it will take the value of the 
             // last element of the sequence because it will be replaced in 
             // each iteration
