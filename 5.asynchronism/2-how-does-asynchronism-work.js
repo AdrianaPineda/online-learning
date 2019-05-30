@@ -8,7 +8,7 @@
 // When a task finishes (for example an API request), it leaves the function callback to be executed in the message queue
 // Message queue (cola de tareas) [FIFO]. Which tasks end up here? Server requests, visual interactions, client side
 // navigation, events that are executed every certain time
-// The job of the Event loop is to look into the call stack and determine if the call stack is empty or not. 
+// The job of the Event loop is to look into the call stack and determine if the call stack is empty or not.
 // If the call stack is empty, it looks into the message queue to see if there’s any pending call back waiting to be executed.
 // Only when the program doesn't have more functions in the call stack, the EventLoop pushes the callback to the top of the stack.
 
@@ -19,3 +19,4 @@
 // When the browser gets the response, the callback function to be executed is put in the EventLoop (bitcoin_price=xxx + callback)
 
 //https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff
+// https://flaviocopes.com/javascript-event-loop/
