@@ -50,3 +50,14 @@ Webpack brings AMD + CommonJs together, to load modules
 
 4. Plugins
   - Help us extend webpack features, for example: Uglify to compress files, or to divide our modules in smaller chunks so our app loads faster
+
+## Configure environment
+Requirements:
+- node & npm
+- npm init (in terminal)
+- Install webpack: npm install webpack --save-dev
+- We can now use webpack. Check out the version: npm list webpack. `webpack -v` won't work cause we don't have it installed globally
+- Our entry point: index.js
+- Configure package.json build script: `"build": "webpack index.js bundle.js"`
+  - `webpack <entry:index.js> <output:bundle.js>`
+- run: `npm run build`
