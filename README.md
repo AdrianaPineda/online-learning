@@ -56,8 +56,17 @@ Requirements:
 - node & npm
 - npm init (in terminal)
 - Install webpack: npm install webpack --save-dev
+- Install webpac-cli: npm install webpack-cli --save-devs
 - We can now use webpack. Check out the version: npm list webpack. `webpack -v` won't work cause we don't have it installed globally
 - Our entry point: index.js
 - Configure package.json build script: `"build": "webpack index.js bundle.js"`
   - `webpack <entry:index.js> <output:bundle.js>`
 - run: `npm run build`
+
+For js/node/webpack to understand webpack.config.js we need to export that module as CommonJs module:
+
+`module.exports = {`
+
+Running `webpack` in terminal will look for a webpack.config.js file
+
+How to look a relative path: `'./<file>'`
