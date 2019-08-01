@@ -16,7 +16,8 @@ class Playlist extends Component {
             // We need to return ^
             // Each child in an array or iterator should have a unique "key" prop > needed
             // because React uses this key to optimize app performance (for example adding or
-            // deleting elements)
+            // deleting elements). If the element is rendered again, React uses this key to know
+            // if this element changed or not.
             // Alternatively, we could use the spread operator 
             // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
             // to send all values to Media (will send one property for each element of item)
