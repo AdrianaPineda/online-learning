@@ -73,6 +73,9 @@ Requirements:
   - `webpack <entry:index.js> <output:bundle.js>`
 - run: `npm run build`
 
+// Leonidas webpack 4.32.2
+// npm i webpack --save-dev --save-exact
+
 For js/node/webpack to understand webpack.config.js we need to export that module as CommonJs module:
 
 `module.exports = {`
