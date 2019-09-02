@@ -1,7 +1,9 @@
 ## Webpack
+
 WP es un Module Bundler for Modern JS Applications, es decir un empaquetador de módulos para el desarrollo de aplicaciones modernas en JavaScript.
 
 In a regular JS app we have tons of files in different formats. Webpack transforms these files into files the browser can understand.
+For example, from sass to css. For example, from modern js to js the browser can understand. It includes a list of rules to transform what developers code and understand to what the browser understands.
 
 Webpack starts from one JS per page and from there it starts importing all modules from our app.
 
@@ -24,6 +26,7 @@ Supports less, sass, babel, hot reloader. Helps the app load faster
 - WP es developer experience.
 
 ## JS Modules
+
 We can use modules using AMD (asynchronous module definition) (require-js packages allows us to use AMD and load modules asynchronously, or just load them at a certain time)
 
 CommonJS: module system in node.js. Bundles modules. Similar to require-js, but it doesn't load multiple files but includes everything in one file.
@@ -31,30 +34,37 @@ CommonJS: module system in node.js. Bundles modules. Similar to require-js, but 
 Webpack brings AMD + CommonJs together, to load modules
 
 ## Basic concepts
+
 1. Entry Points
-  - Principal module
-  - Where other modules are imported
-  - Webpack will read this file to generate the bundle
-  - One entry point per page
-  - With webpack we can have multiple entry points
+
+- Principal module
+- Where other modules are imported
+- Webpack will read this file to generate the bundle
+- One entry point per page
+- With webpack we can have multiple entry points
 
 2. Output
-  We don't want to mix source files to generated
-  - Config for result file
-    - Where is that file
-    - What's it name
+   We don't want to mix source files to generated
+
+- Config for result file
+  - Where is that file
+  - What's it name
 
 3. Loaders
-  - Helps load every type of files (jpg, sass)
-  - Everything that is not pure (native) JS and that needs to be exported as js for the browser to understand
+
+- Helps load every type of files (jpg, sass)
+- Everything that is not pure (native) JS and that needs to be exported as js for the browser to understand
 
 4. Plugins
-  - Help us extend webpack features, for example: Uglify to compress files, or to divide our modules in smaller chunks so our app loads faster
+
+- Help us extend webpack features, for example: Uglify to compress files, or to divide our modules in smaller chunks so our app loads faster
 
 ## Configure environment
+
 Requirements:
+
 - node & npm
-- npm init (in terminal)
+- npm init (in terminal) > to start any js app
 - Install webpack: npm install webpack --save-dev
 - Install webpac-cli: npm install webpack-cli --save-devs
 - We can now use webpack. Check out the version: npm list webpack. `webpack -v` won't work cause we don't have it installed globally
