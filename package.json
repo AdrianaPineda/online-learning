@@ -1,28 +1,29 @@
 {
-  "name": "webpack-course",
-  "version": "1.0.0",
-  "description": "WP es un Module Bundler for Modern JS Applications, es decir un empaquetador de módulos para el desarrollo de aplicaciones modernas en JavaScript.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack index.js bundle.js",
-    "build:local": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AdrianaPineda/platzi-webpack.git"
-  },
-  "keywords": [
-    "webpack"
-  ],
-  "author": "AdrianaPineda",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/AdrianaPineda/platzi-webpack/issues"
-  },
-  "homepage": "https://github.com/AdrianaPineda/platzi-webpack#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "webpack": "^4.39.3"
-  }
+    "name": "webpack-course",
+    "version": "1.0.0",
+    "description": "WP es un Module Bundler for Modern JS Applications, es decir un empaquetador de módulos para el desarrollo de aplicaciones modernas en JavaScript.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "build:local": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AdrianaPineda/platzi-webpack.git"
+    },
+    "keywords": [
+        "webpack"
+    ],
+    "author": "AdrianaPineda",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/AdrianaPineda/platzi-webpack/issues"
+    },
+    "homepage": "https://github.com/AdrianaPineda/platzi-webpack#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "webpack": "^4.39.3",
+        "webpack-cli": "^3.3.7"
+    }
 }
