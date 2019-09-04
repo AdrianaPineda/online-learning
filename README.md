@@ -88,7 +88,7 @@ We will use node modules, hence we need CommonJs to import modules. For js/node/
 
 Running `webpack` in terminal will look for a webpack.config.js file `npx webpack --mode <development/production>`. Mode can also be set in webpack config
 
-Now, lets configure package.json build script: `"build": "webpack"` and run it: `npm run build`
+Now, lets configure package.json build script: `"build": "webpack"` and run it: `npm run build`.
 
 ### info
 
