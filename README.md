@@ -90,6 +90,17 @@ Running `webpack` in terminal will look for a webpack.config.js file `npx webpac
 
 Now, lets configure package.json build script: `"build": "webpack"` and run it: `npm run build`.
 
+## Multiple entry points
+
+Use case: different pages in my site and I dont want a big js file, but I want to handle it per page.
+
+webpackconfig (multi-entry-point folder):
+
+-   entry: json with different keys
+-   output - filename: programmatically create filename ([name])
+
+## package.json:
+
 ### info
 
 // Leonidas webpack 4.32.2
