@@ -8,7 +8,8 @@
         "build": "webpack --entry ./index.js --output ./bundle.js --mode development",
         "build:local": "webpack --mode production",
         "build:external": "webpack --config ./external/webpack.config.js",
-        "build:multi": "webpack --config ./multi-entry-point/webpack.config.js"
+        "build:multi": "webpack --config ./multi-entry-point/webpack.config.js",
+        "build:css": "webpack --config ./css-style-loader/webpack.config.js"
     },
     "repository": {
         "type": "git",
@@ -25,6 +26,8 @@
     "homepage": "https://github.com/AdrianaPineda/platzi-webpack#readme",
     "dependencies": {},
     "devDependencies": {
+        "css-loader": "^3.2.0",
+        "style-loader": "^1.0.0",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.7"
     }

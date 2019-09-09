@@ -107,3 +107,14 @@ webpackconfig (multi-entry-point folder):
 // npm i webpack --save-dev --save-exact
 
 How to look a relative path: `'./<file>'`
+
+## Loaders (css-style-loader)
+
+Loaders are a webpack functionality to interpret certain file types that are not natively supported in JS.
+
+To configure, add modules > rules in webpack config
+
+css-loader: allows js to understand css, interprets css code (but does not include it in the build)
+style-loader: injects css imports to html code
+
+Order matters? First css-loader (last entry in `use`, see webpack.config)
