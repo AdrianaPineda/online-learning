@@ -10,7 +10,9 @@
         "build:external": "webpack --config ./external/webpack.config.js",
         "build:multi": "webpack --config ./multi-entry-point/webpack.config.js",
         "build:css": "webpack --config ./css-style-loader/webpack.config.js",
-        "build:plugins": "webpack --config ./plugins/webpack.config.js"
+        "build:plugins": "webpack --config ./plugins/webpack.config.js",
+        "build:dev": "webpack --config ./webpack-dev-server/webpack.config.js",
+        "build:devserver": "webpack-dev-server --config ./webpack-dev-server/webpack.config.js"
     },
     "repository": {
         "type": "git",
@@ -32,6 +34,7 @@
         "mini-css-extract-plugin": "^0.8.0",
         "style-loader": "^1.0.0",
         "webpack": "^4.39.3",
-        "webpack-cli": "^3.3.7"
+        "webpack-cli": "^3.3.7",
+        "webpack-dev-server": "^3.8.0"
     }
 }

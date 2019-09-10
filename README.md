@@ -135,3 +135,12 @@ This is happening:
    3a. Manually include css into html:
    `<link rel="stylesheet" href="dist/css/home.css" />`
    3b. OR use a plugin to inject it (HtmlWebpackPlugin will generate an html and put it in the dist folder)
+
+## Dev server
+
+Command that webpack autocompiles if there is a change in a file: `--watch` to either the package.json script or on command line > wont require a new build
+`npm run build:dev -- -w`
+
+What if I want the browser to autoreload? Use `webpack-dev-server` library. See webpack: `"build:devserver": "webpack-dev-server ...`. It is now running on localhost
+
+## Hot module replacement
