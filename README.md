@@ -118,3 +118,20 @@ css-loader: allows js to understand css, interprets css code (but does not inclu
 style-loader: injects css imports to html code
 
 Order matters? First css-loader (last entry in `use`, see webpack.config)
+
+Loaders: interpret types of files
+
+## Plugins
+
+Extend webpack capabilities and give loaders more power
+
+For example, what if I want a plugin to export css file on it own?: 'mini-css-extract-plugin' and 'html-webpack-plugin'
+
+This is happening:
+
+1. Interpret css import with 'css-loader'
+2. Plugin (MiniCSSExtractPlugin) will extract the css. How will it extract it? We define that in the plugin section in webpack config
+3. Include css link in html
+   3a. Manually include css into html:
+   `<link rel="stylesheet" href="dist/css/home.css" />`
+   3b. OR use a plugin to inject it (HtmlWebpackPlugin will generate an html and put it in the dist folder)
