@@ -11,7 +11,7 @@
         "build:multi": "webpack --config ./multi-entry-point/webpack.config.js",
         "build:css": "webpack --config ./css-style-loader/webpack.config.js",
         "build:plugins": "webpack --config ./plugins/webpack.config.js",
-        "build:dev": "webpack --config ./webpack-dev-server/webpack.config.js",
+        "build:devNoLocalhost": "webpack --config ./webpack-dev-server/webpack.config.js",
         "build:devserver": "webpack-dev-server --config ./webpack-dev-server/webpack.config.js"
     },
     "repository": {

@@ -108,7 +108,7 @@ webpackconfig (multi-entry-point folder):
 
 How to look a relative path: `'./<file>'`
 
-## Loaders (css-style-loader)
+## Loaders (css-style-loader folder)
 
 Loaders are a webpack functionality to interpret certain file types that are not natively supported in JS.
 
@@ -121,7 +121,7 @@ Order matters? First css-loader (last entry in `use`, see webpack.config)
 
 Loaders: interpret types of files
 
-## Plugins
+## Plugins (plugins folder)
 
 Extend webpack capabilities and give loaders more power
 
@@ -136,11 +136,17 @@ This is happening:
    `<link rel="stylesheet" href="dist/css/home.css" />`
    3b. OR use a plugin to inject it (HtmlWebpackPlugin will generate an html and put it in the dist folder)
 
-## Dev server
+## Dev server (webpack-dev-server folder)
 
 Command that webpack autocompiles if there is a change in a file: `--watch` to either the package.json script or on command line > wont require a new build
-`npm run build:dev -- -w`
+`npm run build:dev -- -w` (build:devNoLocalhost)
 
 What if I want the browser to autoreload? Use `webpack-dev-server` library. See webpack: `"build:devserver": "webpack-dev-server ...`. It is now running on localhost
 
-## Hot module replacement
+## Hot module replacement (webpack-dev-server folder)
+
+We can improve our dev server solution. Now, we want the code/UI to change without the browser reloading
+
+1. Add plugin `new webpack.HotModuleReplacementPlugin()` in webpack.config file
+2. Add `devServer` entry in webpack.config file. `open` opens browser tab automatically.
+3. Include `module.hot.accept` in index.js
