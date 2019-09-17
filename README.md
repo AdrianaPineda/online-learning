@@ -150,3 +150,34 @@ We can improve our dev server solution. Now, we want the code/UI to change witho
 1. Add plugin `new webpack.HotModuleReplacementPlugin()` in webpack.config file
 2. Add `devServer` entry in webpack.config file. `open` opens browser tab automatically.
 3. Include `module.hot.accept` in index.js
+
+## Modern JS support (babel folder)
+
+Babel interprets modern JS and transpiles it into a js the browser understands.
+
+1. Add a rule in webpack config to use `babel-loader`
+2. Install babel `npm install -D @babel/core babel-loader @babel/preset-env`
+   `babel-loader` interprets JS files and passess them to @babel/core
+   `@babel/core` traspiles from modern js to a browser-compatible js
+3. Add a file `.babelrc` to configure babel
+   presets: preconfiguration
+4. `npm run build:babel`
+
+What is happening under the hood?
+
+-   Let's use `build:babelNoWebServer` to check out the dist folder
+-   We are adding modern js in index, render and search files
+
+However, we need an additional plugin for features like `async`:
+
+1. Install deps `npm install -D @babel/plugin-transform-runtime`
+2. `npm install --save @babel/runtime` > recommended to be install as core dep, not as dev dependcy
+3. In `.babelrc`add a plugin `@babel/plugin-transform-runtime`: this plugin will support new js features (for example, generators)
+
+## React(JSX) support (react folder)
+
+JSX is not modern JS sort of speak, but something React came up with. Babel won't understand a react component out of the box, hence we need to transpile it.
+
+1. `npm install -D @babel/preset-react` and react deps (`npm install --save react react-dom`)
+2. Add preset to `.babelrc`: `@babel/preset-react`
+3. Add template to webpack config plugins in `HtmlWebpackPlugin`: `template: path.resolve(__dirname, "index.html")`. So it takes index.html as template

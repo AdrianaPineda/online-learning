@@ -12,7 +12,10 @@
         "build:css": "webpack --config ./css-style-loader/webpack.config.js",
         "build:plugins": "webpack --config ./plugins/webpack.config.js",
         "build:devNoLocalhost": "webpack --config ./webpack-dev-server/webpack.config.js",
-        "build:devserver": "webpack-dev-server --config ./webpack-dev-server/webpack.config.js"
+        "build:devserver": "webpack-dev-server --config ./webpack-dev-server/webpack.config.js",
+        "build:babel": "webpack-dev-server --config ./babel/webpack.config.js",
+        "build:babelNoWebServer": "webpack --config ./babel/webpack.config.js",
+        "build:react": "webpack-dev-server --config ./react/webpack.config.js"
     },
     "repository": {
         "type": "git",
@@ -27,8 +30,17 @@
         "url": "https://github.com/AdrianaPineda/platzi-webpack/issues"
     },
     "homepage": "https://github.com/AdrianaPineda/platzi-webpack#readme",
-    "dependencies": {},
+    "dependencies": {
+        "@babel/runtime": "^7.6.0",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
+    },
     "devDependencies": {
+        "@babel/core": "^7.6.0",
+        "@babel/plugin-transform-runtime": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.6",
         "css-loader": "^3.2.0",
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "^0.8.0",
