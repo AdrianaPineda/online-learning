@@ -181,3 +181,19 @@ JSX is not modern JS sort of speak, but something React came up with. Babel won'
 1. `npm install -D @babel/preset-react` and react deps (`npm install --save react react-dom`)
 2. Add preset to `.babelrc`: `@babel/preset-react`
 3. Add template to webpack config plugins in `HtmlWebpackPlugin`: `template: path.resolve(__dirname, "index.html")`. So it takes index.html as template
+
+## Working with React (react-v2 folder)
+
+-   Starting webpack v4, json files don't need a loader
+
+## Supporting images, fonts and videos (url-loader folder)
+
+Steps:
+
+1. `npm install -D url-loader file-loader`
+2. Add script: `build:url-loader` in package.json
+3. In webpack.config include `"url-loader"` under rules
+4. Load files, for example `<img src={logo} />`. This is where the loader works, the logo is in base4 at this point, if we inspect the html: `<img src="data:image/png;base64.....">`. If this is not what we see, it could be because the limit (under loader options) in webpack.config should be increased
+5. Add fonts in index.css. Change font-family: `font-family: "open_sansregular";`
+
+## Styles with preprocessors (xx folder)
