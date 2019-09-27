@@ -196,4 +196,30 @@ Steps:
 4. Load files, for example `<img src={logo} />`. This is where the loader works, the logo is in base4 at this point, if we inspect the html: `<img src="data:image/png;base64.....">`. If this is not what we see, it could be because the limit (under loader options) in webpack.config should be increased
 5. Add fonts in index.css. Change font-family: `font-family: "open_sansregular";`
 
-## Styles with preprocessors (xx folder)
+## Styles with preprocessors (prepro folder)
+
+1. `npm install -D sass-loader stylus-loader less-loader postcss-loader`
+2. `npm install -D stylus less node-sass`
+3. webpack-config: add rules (less, scss, styl). postcss is different. We need to add it under css rule. And change it a bit because css-loader and postcss-loader may conflict. We need to make sure postcss-loader runs first (as last element in the config) and then css-loader
+4. Add file `postcss.config.js`
+5. Install `npm install -D postcss-nested`
+6. Modify css folder
+7. Update index.js css styles import
+8. Modify App.js
+
+Some loaders have peer dependencies. A peer dependency is a dependency that needs to be installed in the working project, because the loader itself doesn't install it.
+
+## Advanced concepts
+
+### Avoiding duplicated code (prevent-duplication folder)
+
+1. webpack.config add `optimization` section
+2. Add `contact` entry point in webpack.config to cause duplication
+3. Add contact.html and include commons script in both index and contac html files
+4. Run build script and check out `dist`folder
+
+What is a chunk? A piece of my app (for example my imports)
+
+### Adding a dynamic link library (xxx folder)
+
+### Dynamic imports (xxx folder)
