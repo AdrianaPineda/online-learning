@@ -220,6 +220,47 @@ Some loaders have peer dependencies. A peer dependency is a dependency that need
 
 What is a chunk? A piece of my app (for example my imports)
 
-### Adding a dynamic link library (xxx folder)
+### Adding a dynamic link library (dll folder)
 
-### Dynamic imports (xxx folder)
+Adding more dependencies will make build take longer. To improve dev experience and decrease the build time we will use dynamic link library.
+Right now webpack will find duplicated code and will put it in commons.js. With dynamic link library we tell webpack that some dependencies (for example react and react-dom) are the same and webpack will create a separate file. This means that it will bundle dependencies and then link them so it is a usable module inside my app. At this point, when webpack compiles home and contact, it knows it doesnt need to manage react and react dom. This makes the bundle generation faster
+
+1. webpack.dll.config:
+
+-   Add dependencies in entry -> modules
+-   Configure DllPlugin
+-   Add library in output
+
+2. webpack.config:
+
+-   Plugin to consume DLL
+-   Add DllReferencePlugin plugin
+-   Replace style-loader with MiniCSSExtractPlugin
+
+3. Add scripts to package.json
+4. npm run build:dll and then npm run build:prevent-duplication-fast
+5. Modify index and contact html files to use `modules` instead of `commons`, and add `stylesheet` link
+6. Open index and contact html
+
+dll config should be run first, so its output is the input for the regular config.
+
+we dont need to do the dll bundle every time, just once normally. And then do the other bundle, the main one (webpack.config)
+
+### Dynamic imports (dynamic-imports folder)
+
+A module is loaded dynamically at runtime (when it is needed), and is it not included in my initial bundle. We decrease the initial load time.
+
+Importing at the begining of the file implies that those will be included in the initial bundle
+
+1. Create `alert.js`
+2. In `App.js` add `import("./alert");` in handleClick function
+
+-   This import is loader async
+
+3. To support dynamic imports, we need to add a babel plugin `npm install -D @babel/plugin-syntax-dynamic-import`
+4. Add plugin to babelrc
+5. npm run build:dynamic
+
+## Practice
+
+### Setup Platzi Badges
