@@ -263,4 +263,6 @@ Importing at the begining of the file implies that those will be included in the
 
 ## Practice
 
-### Setup Platzi Badges
+### Setup Platzi Badges (platzi-badges folder)
+
+Remove some package.json scripts, and leave `server` and `seed`
