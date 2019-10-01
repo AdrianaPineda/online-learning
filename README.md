@@ -263,6 +263,44 @@ Importing at the begining of the file implies that those will be included in the
 
 ## Practice
 
-### Setup Platzi Badges (platzi-badges folder)
+### Setup Platzi Badges + Configuration (platzi-badges folder)
 
 Remove some package.json scripts, and leave `server` and `seed`
+
+We will configure: dev and prod environments
+
+##### Dev env
+
+1. Add webpack configs: 3 files and .babelrc (taken from dynamic-imports folder)
+2. Install dependencies, because:
+
+webpack
+webpack-cli
+webpack-dev-server: start dev server
+css-loader: project includes css
+style-loader: we will include css dynamically into the html
+file-loader: load files
+babel-loader: to understand modern js
+html-webpack-plugin
+@babel/core
+@babel/preset-env
+@babel/preset-react
+@babel/plugin-transform-runtime: to be able to use async functions
+@babel/plugin-proposal-class-properties
+
+@babel/runtime (not a dev dependency)
+
+3. Configure webpack.dev.config
+
+-   We wont include mini-css-extract plugin because it takes time
+-   Remove DllReferencePlugin
+-   Change from url-loader to file-loader. Main difference is that url-loader loads files as base64 while file-loader only exports files and provides a link which can be faster.
+-   Configure devServer
+-   Configure HtmlWebpackPlugin
+-   Change output > publicPath
+
+4. Include script "build:dev" in package.json
+
+##### Dev prod
+
+Optimize code
