@@ -5,17 +5,16 @@ const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        home: path.resolve(__dirname, "src/js/index.js"),
-        contact: path.resolve(__dirname, "src/js/contact.js")
+        app: path.resolve(__dirname, "src/index.js")
     },
-    mode: "production", // "development" mode makes files heavier
+    // mode: "production", // "development" mode makes files heavier
     output: {
         // filename: 'bundle.js'
         // __dirname is a variable tha must be set by webpack
         path: path.resolve(__dirname, "dist"),
         // dist is the standard name for compiled files folder
         filename: "js/[name].js",
-        publicPath: "dist/",
+        publicPath: "http://localhost:3001",
         chunkFilename: "js/[id].[chunkhash].js"
     },
     module: {
@@ -31,39 +30,40 @@ module.exports = {
                     {
                         loader: MiniCSSExtractPlugin.loader
                     },
-                    {
-                        loader: "css-loader",
-                        options: {
-                            importLoaders: 1
-                        }
-                    },
-                    "postcss-loader"
+                    // {
+                    //     loader: "css-loader",
+                    //     options: {
+                    //         importLoaders: 1
+                    //     }
+                    // },
+                    // "postcss-loader"
+                    "css-loader"
                 ]
             },
-            {
-                test: /\.less$/,
-                use: [
-                    { loader: MiniCSSExtractPlugin.loader },
-                    "css-loader",
-                    "less-loader"
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    { loader: MiniCSSExtractPlugin.loader },
-                    "css-loader",
-                    "sass-loader"
-                ]
-            },
-            {
-                test: /\.styl$/,
-                use: [
-                    { loader: MiniCSSExtractPlugin.loader },
-                    "css-loader",
-                    "stylus-loader"
-                ]
-            },
+            // {
+            //     test: /\.less$/,
+            //     use: [
+            //         { loader: MiniCSSExtractPlugin.loader },
+            //         "css-loader",
+            //         "less-loader"
+            //     ]
+            // },
+            // {
+            //     test: /\.scss$/,
+            //     use: [
+            //         { loader: MiniCSSExtractPlugin.loader },
+            //         "css-loader",
+            //         "sass-loader"
+            //     ]
+            // },
+            // {
+            //     test: /\.styl$/,
+            //     use: [
+            //         { loader: MiniCSSExtractPlugin.loader },
+            //         "css-loader",
+            //         "stylus-loader"
+            //     ]
+            // },
             {
                 test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
                 use: {
@@ -72,7 +72,7 @@ module.exports = {
                     // and will embed it into the js code (inline)
                     // not recommended for big files
                     options: {
-                        limit: 90000 // max bytes supported
+                        limit: 1000 // max bytes supported
                     }
                 }
             }
@@ -83,10 +83,10 @@ module.exports = {
             filename: "css/[name].css",
             chunkFilename: "css/[id].css"
         }),
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            title: "Plugins",
-            template: path.resolve(__dirname, "index.html")
+            // title: "Plugins",
+            template: path.resolve(__dirname, "public/index.html")
         }), // adds html to dist folder
         // It is faster if we dont use this:
         // new MiniCSSExtractPlugin({

@@ -269,7 +269,7 @@ Remove some package.json scripts, and leave `server` and `seed`
 
 We will configure: dev and prod environments
 
-##### Dev env
+#### Dev env
 
 1. Add webpack configs: 3 files and .babelrc (taken from dynamic-imports folder)
 2. Install dependencies, because:
@@ -301,6 +301,34 @@ html-webpack-plugin
 
 4. Include script "build:dev" in package.json
 
-##### Dev prod
+#### Prod env
 
-Optimize code
+We do this to optimize code. We will modify webpack.config and webpack.dll.config
+
+In webpack.config:
+
+1. Install `npm install -D mini-css-extract-plugin url-loader`
+2. Add `css-loader` and remove `postcss-loader`
+3. Remove less, stylus, sass config, HotModuleReplacementPlugin
+4. Configure HtmlWebpackPlugin and entry
+5. Remove mode, to be set on package script with --mode
+6. Modify publicPath to use localhost from json server
+
+In package.json
+
+1. Add build and build:dll scripts
+2. Modify `server` script
+
+In webpack.dll.config:
+
+1. Include "react-router-dom"
+2. Remove mode, to be set on package script with --mode
+
+Now:
+
+1. Run `npm run build:dll` and then `npm run build`
+2. Run `npm run server`
+
+Now: error on localhost:3001, we need to configure dll properly
+
+### Optimal Configuration (platzi-badges folder?)

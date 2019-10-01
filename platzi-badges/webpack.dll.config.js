@@ -3,9 +3,9 @@ const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        modules: ["react", "react-dom"]
+        modules: ["react", "react-dom", "react-router-dom"]
     },
-    mode: "production", // "development" mode makes files heavier
+    // mode: "production", // "development" mode makes files heavier
     output: {
         // filename: 'bundle.js'
         // __dirname is a variable tha must be set by webpack
