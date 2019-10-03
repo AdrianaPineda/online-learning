@@ -11,19 +11,19 @@ Supports less, sass, babel, hot reloader. Helps the app load faster
 
 **¿Por qué usar Webpack? **
 
--   Aunque hay otras alternativas WP es un la forma mas sofisticada para cargar y transformar módulos. WP trae todas las formas de importación de módulos, en resumen trae lo mejor de todos los mundos.
+- Aunque hay otras alternativas WP es un la forma mas sofisticada para cargar y transformar módulos. WP trae todas las formas de importación de módulos, en resumen trae lo mejor de todos los mundos.
 
--   Entrypoints - múltiples puntos de entrada a tus aplicaciones - archivos iniciales, tienes uno por cada pagina que vayas a usar.
+- Entrypoints - múltiples puntos de entrada a tus aplicaciones - archivos iniciales, tienes uno por cada pagina que vayas a usar.
 
--   Puedes tener multiples entrypoints.
+- Puedes tener multiples entrypoints.
 
--   OUTPUT. Si bien le decimos cual es el archivo fuente, debemos decirle que hacer con eso y donde ponerlo, porque no queremos mezclar los archivos finales que lee el navegador con los archivos fuente.
+- OUTPUT. Si bien le decimos cual es el archivo fuente, debemos decirle que hacer con eso y donde ponerlo, porque no queremos mezclar los archivos finales que lee el navegador con los archivos fuente.
 
--   Loaders. Nos ayudan a cargar todo tipo de formato de archivos.
+- Loaders. Nos ayudan a cargar todo tipo de formato de archivos.
 
--   Plugins. nos ayudan a extender las caracteristicas de WP, por ejemplo comprimir archivos, dividir nuestros modulos en chunks, etc.
+- Plugins. nos ayudan a extender las caracteristicas de WP, por ejemplo comprimir archivos, dividir nuestros modulos en chunks, etc.
 
--   WP es developer experience.
+- WP es developer experience.
 
 ## JS Modules
 
@@ -37,43 +37,43 @@ Webpack brings AMD + CommonJs together, to load modules
 
 1. Entry Points
 
--   Principal module
--   Where other modules are imported
--   Webpack will read this file to generate the bundle
--   One entry point per page
--   With webpack we can have multiple entry points
+- Principal module
+- Where other modules are imported
+- Webpack will read this file to generate the bundle
+- One entry point per page
+- With webpack we can have multiple entry points
 
 2. Output
    We don't want to mix source files to generated
 
--   Config for result file
-    -   Where is that file
-    -   What's it name
+- Config for result file
+  - Where is that file
+  - What's it name
 
 3. Loaders
 
--   Helps load every type of files (jpg, sass)
--   Everything that is not pure (native) JS and that needs to be exported as js for the browser to understand
+- Helps load every type of files (jpg, sass)
+- Everything that is not pure (native) JS and that needs to be exported as js for the browser to understand
 
 4. Plugins
 
--   Help us extend webpack features, for example: Uglify to compress files, or to divide our modules in smaller chunks so our app loads faster
+- Help us extend webpack features, for example: Uglify to compress files, or to divide our modules in smaller chunks so our app loads faster
 
 ## Configure environment
 
 Requirements:
 
--   node & npm
--   npm init (in terminal) > to start any js app
--   Install webpack: npm install webpack --save-dev
--   Install webpac-cli (for webpack 4+ we need the cli - command line interface): npm install webpack-cli --save-dev
--   We can now use webpack. Check out the version: npm list webpack. `webpack -v` won't work cause we don't have it installed globally
--   `npx webpack -v` checks the installed version of webpack in the current directory
--   Our entry point: index.js (files used for development)
--   Configure file that I would webpack to traspile > `npx webpack --entry ./index.js --output ./bundle.js`. `webpack <entry:index.js> <output:bundle.js>`
--   Our output: bundle is the final product for the browser
--   webpack mode: dev or prod > `npx webpack --entry ./index.js --output ./bundle.js --mode development`. I will output the file faster and in a more readable format
--   Now in index.html: `<script src="bundle.js"></script>`, instead of index.js
+- node & npm
+- npm init (in terminal) > to start any js app
+- Install webpack: npm install webpack --save-dev
+- Install webpac-cli (for webpack 4+ we need the cli - command line interface): npm install webpack-cli --save-dev
+- We can now use webpack. Check out the version: npm list webpack. `webpack -v` won't work cause we don't have it installed globally
+- `npx webpack -v` checks the installed version of webpack in the current directory
+- Our entry point: index.js (files used for development)
+- Configure file that I would webpack to traspile > `npx webpack --entry ./index.js --output ./bundle.js`. `webpack <entry:index.js> <output:bundle.js>`
+- Our output: bundle is the final product for the browser
+- webpack mode: dev or prod > `npx webpack --entry ./index.js --output ./bundle.js --mode development`. I will output the file faster and in a more readable format
+- Now in index.html: `<script src="bundle.js"></script>`, instead of index.js
 
 webpack is the core library, webpack-cli is the api that allows us to configure it.
 
@@ -96,8 +96,8 @@ Use case: different pages in my site and I dont want a big js file, but I want t
 
 webpackconfig (multi-entry-point folder):
 
--   entry: json with different keys
--   output - filename: programmatically create filename ([name])
+- entry: json with different keys
+- output - filename: programmatically create filename ([name])
 
 ## package.json:
 
@@ -165,8 +165,8 @@ Babel interprets modern JS and transpiles it into a js the browser understands.
 
 What is happening under the hood?
 
--   Let's use `build:babelNoWebServer` to check out the dist folder
--   We are adding modern js in index, render and search files
+- Let's use `build:babelNoWebServer` to check out the dist folder
+- We are adding modern js in index, render and search files
 
 However, we need an additional plugin for features like `async`:
 
@@ -184,7 +184,7 @@ JSX is not modern JS sort of speak, but something React came up with. Babel won'
 
 ## Working with React (react-v2 folder)
 
--   Starting webpack v4, json files don't need a loader
+- Starting webpack v4, json files don't need a loader
 
 ## Supporting images, fonts and videos (url-loader folder)
 
@@ -223,19 +223,19 @@ What is a chunk? A piece of my app (for example my imports)
 ### Adding a dynamic link library (dll folder)
 
 Adding more dependencies will make build take longer. To improve dev experience and decrease the build time we will use dynamic link library.
-Right now webpack will find duplicated code and will put it in commons.js. With dynamic link library we tell webpack that some dependencies (for example react and react-dom) are the same and webpack will create a separate file. This means that it will bundle dependencies and then link them so it is a usable module inside my app. At this point, when webpack compiles home and contact, it knows it doesnt need to manage react and react dom. This makes the bundle generation faster
+Right now webpack will find duplicated code and will put it in commons.js. With dynamic link library we tell webpack that some dependencies (for example react and react-dom) are the same and webpack will create a separate file. This means that it will bundle dependencies and then link them so it is a usable module inside my app. At this point, when webpack compiles home and contact, it knows it doesnt need to manage react and react dom. This makes the bundle generation faster. Those libraries are not bundled every time a build is generated
 
 1. webpack.dll.config:
 
--   Add dependencies in entry -> modules
--   Configure DllPlugin
--   Add library in output
+- Add dependencies in entry -> modules
+- Configure DllPlugin
+- Add library in output
 
 2. webpack.config:
 
--   Plugin to consume DLL
--   Add DllReferencePlugin plugin
--   Replace style-loader with MiniCSSExtractPlugin
+- Plugin to consume DLL
+- Add DllReferencePlugin plugin
+- Replace style-loader with MiniCSSExtractPlugin
 
 3. Add scripts to package.json
 4. npm run build:dll and then npm run build:prevent-duplication-fast
@@ -255,7 +255,7 @@ Importing at the begining of the file implies that those will be included in the
 1. Create `alert.js`
 2. In `App.js` add `import("./alert");` in handleClick function
 
--   This import is loader async
+- This import is loader async
 
 3. To support dynamic imports, we need to add a babel plugin `npm install -D @babel/plugin-syntax-dynamic-import`
 4. Add plugin to babelrc
@@ -294,12 +294,12 @@ html-webpack-plugin
 
 3. Configure webpack.dev.config
 
--   We wont include mini-css-extract plugin because it takes time
--   Remove DllReferencePlugin
--   Change from url-loader to file-loader. Main difference is that url-loader loads files as base64 while file-loader only exports files and provides a link which can be faster.
--   Configure devServer
--   Configure HtmlWebpackPlugin
--   Change output > publicPath
+- We wont include mini-css-extract plugin because it takes time
+- Remove DllReferencePlugin
+- Change from url-loader to file-loader. Main difference is that url-loader loads files as base64 while file-loader only exports files and provides a link which can be faster.
+- Configure devServer
+- Configure HtmlWebpackPlugin
+- Change output > publicPath
 
 4. Include script "build:dev" in package.json
 
@@ -343,9 +343,9 @@ Now: error on localhost:3001, we need to configure dll properly
 
 1. In webpack.config configure:
 
--   output > filename with hash
--   url-loader name and output
--   MiniCSSExtractPlugin with hash
+- output > filename with hash
+- url-loader name and output
+- MiniCSSExtractPlugin with hash
 
 2. In order to clean dist folder: npm install -D clean-webpack-plugin
 
@@ -355,5 +355,5 @@ Now: error on localhost:3001, we need to configure dll properly
 
 Then:
 
--   Delete build folder
--   npm run build:dll; npm run build; npm run server
+- Delete build folder
+- npm run build:dll; npm run build; npm run server
