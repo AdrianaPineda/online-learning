@@ -1,5 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
+const TersetJSPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -11,8 +13,11 @@ module.exports = {
         // __dirname is a variable tha must be set by webpack
         path: path.resolve(__dirname, "dist"),
         // dist is the standard name for compiled files folder
-        filename: "js/[name].js",
+        filename: "js/[name].[hash].dll.js",
         library: "[name]"
+    },
+    optimization: {
+        minimizer: [new TersetJSPlugin(), new OptimizeCSSAssetsPlugin()]
     },
     plugins: [
         new webpack.DllPlugin({

@@ -2,6 +2,10 @@ const path = require("path");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
+const AddAssetsHtmlPlugin = require("add-asset-html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const TersetJSPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -13,9 +17,12 @@ module.exports = {
         // __dirname is a variable tha must be set by webpack
         path: path.resolve(__dirname, "dist"),
         // dist is the standard name for compiled files folder
-        filename: "js/[name].js",
-        publicPath: "http://localhost:3001",
+        filename: "js/[name].[hash].js",
+        publicPath: "http://localhost:3001/",
         chunkFilename: "js/[id].[chunkhash].js"
+    },
+    optimization: {
+        minimizer: [new TersetJSPlugin(), new OptimizeCSSAssetsPlugin()]
     },
     module: {
         rules: [
@@ -72,7 +79,9 @@ module.exports = {
                     // and will embed it into the js code (inline)
                     // not recommended for big files
                     options: {
-                        limit: 1000 // max bytes supported
+                        limit: 1000, // max bytes supported
+                        name: "[hash].[ext]",
+                        outputPath: "assets"
                     }
                 }
             }
@@ -80,8 +89,8 @@ module.exports = {
     },
     plugins: [
         new MiniCSSExtractPlugin({
-            filename: "css/[name].css",
-            chunkFilename: "css/[id].css"
+            filename: "css/[name].[hash].css",
+            chunkFilename: "css/[id].[hash].css"
         }),
         // new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
@@ -94,6 +103,14 @@ module.exports = {
         // }) // exports css file, instead of injecting it with html (see css-style-loader)
         new webpack.DllReferencePlugin({
             manifest: require("./modules-manifest.json")
+        }),
+        new AddAssetsHtmlPlugin({
+            filepath: path.resolve(__dirname, "dist/js/*.dll.js"),
+            outputPath: "js",
+            publicPath: "http://localhost:3001/js"
+        }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: ["**/app.*"]
         })
     ]
 };

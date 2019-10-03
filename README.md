@@ -263,7 +263,9 @@ Importing at the begining of the file implies that those will be included in the
 
 ## Practice
 
-### Setup Platzi Badges + Configuration (platzi-badges folder)
+### Setup Platzi Badges + Configuration (platzi-badges folder, cd into folder)
+
+https://github.com/LeonidasEsteban/webpack-4/blob/master/platzi-badges
 
 Remove some package.json scripts, and leave `server` and `seed`
 
@@ -331,4 +333,27 @@ Now:
 
 Now: error on localhost:3001, we need to configure dll properly
 
-### Optimal Configuration (platzi-badges folder?)
+### Optimal Configuration (platzi-badges folder, cd into folder)
+
+1. npm install -D add-asset-html-webpack-plugin
+2. In webpack config configure AddAssetsHtmlPlugin. In webpack.dll configure output > filename
+3. npm run build:dll; npm run build; npm run server
+
+### Versioning, cleaning and compressing files (platzi-badges folder, cd into folder)
+
+1. In webpack.config configure:
+
+-   output > filename with hash
+-   url-loader name and output
+-   MiniCSSExtractPlugin with hash
+
+2. In order to clean dist folder: npm install -D clean-webpack-plugin
+
+3. Configure CleanWebpackPlugin in webpack.config
+4. npm install -D optimize-css-assets-webpack-plugin terser-webpack-plugin
+5. Configure TersetJSPlugin and OptimizeCSSAssetsPlugin in webpack.config AND in webpack.dll.config under optimization
+
+Then:
+
+-   Delete build folder
+-   npm run build:dll; npm run build; npm run server
