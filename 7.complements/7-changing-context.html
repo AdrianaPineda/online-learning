@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Changing context when calling function</title>
+  </head>
+  <body>
+    <script>
+      const james = {
+        name: 'James',
+        lastName: 'Taylor'
+      }
+
+      function sayHello() {
+        console.log(`Hi, my name is ${this.name}`) // `this` is the window, therefore name is undefined
+      }
+
+      const sayHelloToJames = sayHello.bind(james) // we bind james to `this`
+      // `.bind` returns a reference to a function
+
+      // Another way:
+      setTimeout(sayHello.bind(james), 1000)
+
+      function sayHelloWithFirstPart(message = 'Hi') {
+        console.log(`${message}, my name is ${this.name}`)
+      }
+
+      setTimeout(sayHelloWithFirstPart.bind(james, 'Hi there'), 1000)
+      // bind first param is the context, and then the method params
+
+      // Take into account the function `bind` does *not* execute the function,
+      // but it returns a new function with the context changed
+
+      /// Call
+      sayHello.call(james) // Executes the method immediately 
+      sayHelloWithFirstPart.call(james, 'Hi there 2') // Executes the method immediately 
+
+      /// Apply
+      sayHello.apply(james) // Executes the method immediately 
+      sayHelloWithFirstPart.call(james, ['Hi there 2']) // Executes the method immediately 
+
+      // The `apply` method requires params to be sent as an array
+
+    </script>
+  </body>
+</html>

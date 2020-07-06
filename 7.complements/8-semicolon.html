@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>When do we use semicolon ; ?</title>
+  </head>
+  <body>
+    <script>
+      // ; is optional unless:
+      // when starting a line with an array
+      console.log('Hello, my name is James'); // < ---
+      [1, 2, 3].forEach(n => console.log(n*2))
+
+      // when staring a line with a literal string
+      const name = 'John'
+      console.log('Hello, my name is James'); // < ---
+      `Hi there ${name}`
+
+      // 
+      function calculateDouble(number) {
+        return { // < --- if there is an enter here, JS thinks there is a ; and doesn't understand the next line
+          original: number,
+          double: number *2
+        }
+      }
+    </script>
+  </body>
+</html>

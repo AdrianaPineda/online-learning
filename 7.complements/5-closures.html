@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Closures</title>
+  </head>
+  <body>
+    <script>
+      /* What is a closure? A function that remembers the state
+      when it was invoked
+      */
+     function buildHello(endOfSentence) {
+       return function(name) {
+         console.log(`Hello ${name} ${endOfSentence}`) // It remembers the endOfSentence var
+       }
+     }
+
+     const argentinaHello = buildHello('che')
+     const mexicoHello = buildHello('guey')
+     const colombiaHello = buildHello('amigo')
+
+     argentinaHello('Tyler') // Hello Tyler che
+     mexicoHello('Tyler') // Hello Tyler guey
+     colombiaHello('Tyler') // Hello Tyler amigo
+</script>
+  </body>
+</html>
