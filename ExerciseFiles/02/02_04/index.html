@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>An empty page</title>
+
+    <!-- This will generate an error See 02_03 file-->
+    <!-- When the browsers finds a javascript file reference, it will stop the rendering
+    of the page until the script file is downloaded and executed: "JavaScript render blocking" which can
+    slow the performance of the site significantly
+    Ideally we should put javascript references at the bottom of the document, below the end body tag,
+    even if the scripts were supposed to be run at the top -->
+    <!-- <script src="script.js"></script> -->
+</head>
+
+<body>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
+
+<!--
+HTML parsing
+JS downloading
+JS executing
+
+There are 3 ways JavaScript can load:
+1. Right away
+- HTML parsing until it finds a JavaScript reference, it downloads the JS, then executes and finally
+it continues with tht HTML parsing.
+2. Asynchronous <script src="script.js" async></script>
+- The js file will be downloaded along side the html and render blocking will only occur when the js is
+executing
+3. Defer <script src="script.js" defer></script>
+- JS execution only happens when everything else is loaded.
+- HTML parsing and JS downloading happens at the same time
+-->

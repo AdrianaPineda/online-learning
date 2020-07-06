@@ -1,1 +1,1 @@
-## Online learning projects
+# javascript-course
