@@ -1,1 +1,1 @@
-# platzi-projects
+## Online learning projects
