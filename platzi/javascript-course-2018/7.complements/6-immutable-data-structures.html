@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Immutable structures</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      */
+      const james = {
+        name: 'James',
+        lastName: 'Taylor',
+        age: 20
+      }
+
+      // this function is modifying the param, it has a border effect
+      //const birthday = person => person.age ++ 
+
+      const immutableBirthday = person => ({
+        ...person,
+        age: person.age + 1
+      })
+</script>
+  </body>
+</html>

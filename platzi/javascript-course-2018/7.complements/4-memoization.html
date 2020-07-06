@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Memoization</title>
+  </head>
+  <body>
+    <script>
+    
+    // Allow us to save processing (procesamiento) and computo, by saving
+    // results from some accounts
+
+    /*
+      6! = 6 * 5 * 4 * 3 * 2 * 1
+    */
+
+   function factorial(n) {
+     if (!this.cache) {
+       this.cache = {}
+     }
+
+     if (this.cache[n]) {
+       return this.cache[n]
+     }
+
+     if (n === 1) {
+       return 1
+     }
+
+     this.cache[n] = n * factorial(n-1)
+     return this.cache[n]
+   }
+
+   console.log(factorial(6))
+
+    </script>
+  </body>
+</html>
