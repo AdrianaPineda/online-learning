@@ -1,0 +1,31 @@
+/* rules > lines 10-12
+selectors > (example: header) ways to identify one or more elements inside our html
+declarations > what is inside the brackets
+properties > background
+values > pink
+ */
+
+/* Tag selector */
+/* For example: header, section, article, nav */
+header { 
+  background: pink;
+}
+
+/* Descendent selector */
+/* Element that is a child of another element */
+body header div nav ol li a {
+
+}
+
+/* ID selector */
+/* Precede with a `#` */
+#portfolio {
+  background: orange;
+}
+
+/* Class selector */
+/* A class is an HTML attribute */
+/* Precede with a `.` */
+.link {
+  background: purple;
+}

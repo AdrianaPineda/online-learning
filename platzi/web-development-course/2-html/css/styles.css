@@ -1,0 +1,7 @@
+body {
+    /* background: red !important; */
+    /* this is not recommended ^ */
+    background: red;
+}
+
+/* Precedence: style from href, then style in head, and then inline style */

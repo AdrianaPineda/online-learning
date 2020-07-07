@@ -1,0 +1,59 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: normal;
+  /* font-style: italic; */
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.5;
+  letter-spacing: -.2px;
+  color: white;
+  margin: 0px;
+  /* text-transform: uppercase; */
+  /* text-decoration: underline; */
+}
+/* Margin collapsing: maximum margin between 2 elements, not the sum */
+
+h1 strong {
+  color: #026fff;
+}
+
+.hero {
+  height: 300px;
+  background-color: #1b2127;
+  background-image: url('../images/hero.jpg');
+  background-size: 500px 300px;
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+
+.project {
+  border: 1px solid gray;
+  border-radius: 10px;
+  /* when there is no border color specified, it will take the color
+  of the current text */
+  margin-bottom: 15px;
+}
+
+.project-details {
+  width: 500px;
+}
+
+.project-imageContainer {
+  width: 500px;
+}
+
+.header {
+  background-color: #1b2127;
+  color: white;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
