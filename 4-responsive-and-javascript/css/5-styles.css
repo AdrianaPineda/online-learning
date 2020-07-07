@@ -1,0 +1,640 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?r21ue6');
+  src:  url('../fonts/icomoon.eot?r21ue6#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?r21ue6') format('truetype'),
+    url('../fonts/icomoon.woff?r21ue6') format('woff'),
+    url('../fonts/icomoon.svg?r21ue6#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e9bd";
+}
+
+.burger-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .8);
+  color: white;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  z-index: 4;
+  display: none;
+  
+  /* Properties here are set as fonts, remember icons are fonts */
+
+  /* How to center, option 1: */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+
+  /* How to center, option 2: */
+  /* display: block; */
+  /* we need to change the display to block because the default
+  is inline and this one doesn't allow us to change the width
+  or the height*/
+  /* PS: display block set for screen 767 */
+  line-height: 40px;
+  text-align: center;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: normal;
+  /* font-style: italic; */
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.5;
+  letter-spacing: -.2px;
+  color: white;
+  margin: 0px;
+  /* text-transform: uppercase; */
+  /* text-decoration: underline; */
+}
+/* Margin collapsing: maximum margin between 2 elements, not the sum */
+
+h1 strong {
+  color: #026fff;
+}
+
+h2 {
+  color: #026fff;
+  text-transform: uppercase;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.header {
+  background-color: #1b2127;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  padding: 0 10px;
+}
+
+.menu {
+  height: inherit;
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header ul {
+  display: flex;
+  height: inherit;
+}
+
+.header ul li {
+  height: inherit;
+}
+
+figure {
+  margin: 0;
+}
+
+.hero {
+  height: 300px;
+  background-color: #1b2127;
+  /* background-image: url('../images/hero.jpg'); */
+  /* background-size: 500px 300px; */
+  /* background-repeat: no-repeat; */
+  /* background-position-x: right; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-image {
+  object-fit: cover;
+}
+
+.portfolio {
+  background: #fafafa;
+  padding: 20px;
+}
+
+.project {
+  border: 1px solid gray;
+  border-radius: 10px;
+  /* when there is no border color specified, it will take the color
+  of the current text */
+  /* margin: 10px; */
+  margin-bottom: 15px;
+  padding: 20px;
+  background: white;
+  /* The following (box-sizing) will make this element to have an exact width and height (including padding and border) */
+  /* box-sizing: border-box; */
+  /* width: 500px; */
+  /* height: 500px; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-details {
+  width: 50%;
+  display: inline-block;
+}
+
+.project-title {
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.project-course,
+.project-date,
+.project-url {
+  margin: 10px 0;
+}
+
+.project-description {
+  font-size: 20px;
+}
+
+.project strong {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+/* .project-date {
+  margin: 10px 0;
+} */
+
+.project-imageContainer {
+  width: 50%;
+}
+
+.project-imageContainer img {
+  max-width: 100%;
+}
+
+/* Displays
+none > won't show
+block > elements will tend to occupy all width available
+inline > content will tend to be displayed next to each other, 
+but keep in mind that the elements will occupy the width they need 
+and will bypass any width property set
+inline-block > respects width
+flex > 
+*/
+
+/* When we use flexbox there is no margin collapsing */
+.flexbox {
+  display: flex;
+  /* affects **immediate** children, not children of children ^ */
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  /* caution
+  flex-direction to row will center horizontally with justify-content
+  flex-direction to row will center vertically with align-items
+  flex-direction to column will center horizontally with align-items
+  flex-direction to column will center vertically with justify-content
+  */
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  margin: 1.5px;
+  border: 1px solid red;
+  flex-shrink: 0;
+}
+
+.event-list-title {
+  margin-left: 20px;
+}
+
+.event-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event {
+  /* border: 1px solid red; */
+  width: 48%; /* It is not 50% because the margin also takes space*/
+  margin: 1%;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #f4fbff;
+  z-index: 0; 
+  /* ^ Added because the detail was not shown after adding the video */
+}
+
+.event img {
+  width: 480px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-detail {
+  margin: 20px 40px;
+  margin-top: -40px;
+  background-color: white;
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+.event-description {
+  text-align: left;
+}
+
+.event-url {
+  color: #056fff;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px 20px;
+  text-decoration: none;
+}
+
+.html-video {
+  width: 100%;
+  height: auto;
+  /* max-width: 100%; Will take the maximum size which in this case is 1280 even if our website has more width  */
+}
+
+.flexible-video {
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  position: relative;
+}
+/* Keep proportion of video (for horizontal videos): height*100/width */
+/* Keep proportion of video (for vertical videos): width*100/height */
+.youtube-video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact {
+  background-color: #056fff;
+  color: white;
+  height: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-email input {
+  border-color: gray;
+  border-radius: 5px;
+  border-style: solid;
+  padding: 10px 20px 10px 25px;
+  background-image: url('../images/envelope.svg');
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 5px;
+}
+
+.form-email button {
+  display: block;
+  margin-top: 10px;
+  background: transparent;
+  color: white;
+  padding: 10px 0;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.form-email h3 {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+}
+.social {
+  /* border: 1px solid red; */
+}
+
+.social-link {
+  display: inline-block;
+  /* Without this ^, the size is not respected cause a tags have 
+  a default display inline */
+  width: 50px;
+  height: 50px;
+  /* border: 1px solid white; */
+  background-size: 50px 50px;
+  margin: 0 10px;
+}
+
+.social-link.twitter {
+  background-image: url('../images/twitter.svg');
+}
+.social-link.facebook {
+  background-image: url('../images/facebook.svg');
+}
+.social-link.github {
+  background-image: url('../images/github.svg');
+}
+.social-link.instagram {
+  background-image: url('../images/instagram.svg');
+}
+
+.footer {
+  background-color: #1b2127;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer img {
+  vertical-align: middle;
+}
+
+.footer a {
+  color: white;
+}
+
+/* With this new container our elements UI break, 
+because display flex affects only it immediate children and
+that's why we need to inherit in container so the children
+are displayed properly */
+.container {
+  /* border: 1px solid red; */
+  max-width: 1000px;
+  /* width: 100%; This will take 100% of 1000px ^ */
+  flex: 1; /* Takes all width available. Replaces width 100%*/
+  margin: 0 auto;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  height: inherit;
+  flex-wrap: inherit;
+}
+
+/* When we go desktop first, we should start
+from the biggest media query */
+
+@media screen and (max-width: 1023px) {
+  .container {
+    padding: 0 1em;
+  }
+
+  .hero {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: 2em;
+  }
+
+  .hero-image {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2em;
+    z-index: 2;
+  }
+
+  .portfolio {
+    padding: 0;
+  }
+
+  .event-list-title {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-button {
+    display: block;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    z-index: 3;
+    background: rgba(5, 111, 255, .9);
+    width: 100vw;
+    /* height: 100vh; */
+    /* If we use this ^, we would need to change the ul elements
+    display to be auto cause they won't allow the menu to center
+    vertically */
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+  }
+
+  .menu.is-active {
+    left: 0;
+  }
+
+  .header {
+    display: block; /*https://www.w3schools.com/cssref/pr_class_display.asp*/
+    height: auto;
+  }
+
+  .header .logo {
+    text-align: center;
+  }
+  
+  .header ul {
+    display: initial;
+  }
+
+  .header ul li {
+    height: 50px;
+  }
+
+  .header a {
+    justify-content: center;
+    height: 40px;
+    font-size: 2em;
+    text-decoration: underline;
+    margin-bottom: .5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    margin: .5em 0;
+  }
+
+  .project {
+    display: block;
+  }
+
+  .project-details {
+    width: auto;
+  }
+  
+  .project-title {
+    font-size: 1.5em;
+    margin-bottom: 0.3em;
+  }
+
+  .project-url {
+    font-size: 1em;
+  }
+
+  .project-course {
+    font-size: .7em;
+  }
+
+  .project-date {
+    font-size: 1em;
+  }
+
+  .project-description {
+    font-size: 1em;
+  }
+  
+  .project-imageContainer {
+    width: auto;
+    text-align: center;
+    /* It is better to have width as auto than as percentage (100%) */
+  }
+
+  .project-course, .project-date, .project-url {
+    margin: 0.4em 0;
+  }
+
+  .event {
+    width: auto;
+    flex-shrink: initial;
+  }
+
+  .event img {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .project-details {
+    font-size: 14px;
+  }
+
+  .event-detail {
+    margin: -2em .5em .5em;
+    padding: 1em;
+  }
+
+  .contact {
+    height: auto;
+    padding: 1.5em 0;
+    text-align: center;
+    display: block;
+  }
+
+  .form-email h3 {
+    margin-top: 0;
+  }
+  
+  .form-email button {
+    margin:  1em auto;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    background-size: 100%; /* takes the same value as width and height ^*/
+  }
+
+  .footer {
+    display: block;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  h1 {
+    font-size: 1.2em;
+    /* background: rgba(0, 0, 0, 0.5) */
+  }
+
+  .hero {
+    padding: 2em 1em;
+  }
+
+}
+
+/* CSS positions
+static: positioned according to the normal flow of the page
+relative: relative to its normal position.
+fixed: positioned relative to the viewport. It always stays 
+in the same place even if the page is scrolled
+absolute: positioned relative to the nearest positioned ancestor. If not
+ancestor has a position, it takes the body as relative
+sticky: positioned based on the user's scroll position.
+
+https://www.w3schools.com/css/css_positioning.asp
+
+z-index: by default elements added last are shown on top, if we 
+want to change that we need to use z-index. The higher the number
+the element will be on top of others with lower numbers
+ */
+
+ /* Icons: https://icomoon.io/ */
