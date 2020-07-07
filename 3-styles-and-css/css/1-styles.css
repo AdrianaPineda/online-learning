@@ -1,0 +1,12 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* We need commas, otherwise the browser would think it needs
+to look for an h6 inside an h5 inside an h4 ... */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+/* Font families with more than one letter are enclosed in quotes */
+  /* https://fonts.google.com/ */

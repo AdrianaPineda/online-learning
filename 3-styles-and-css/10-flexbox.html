@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Adriana Pineda</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="css/10-styles.css">
+  </head>
+  <body>
+    <div class="flexbox">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <header class="header">
+      <div>
+        <figure class="logo">
+          <img src="images/logo.png" alt="Logo of Leonidas" />
+        </figure>
+        <nav class="menu">
+          <ul>
+            <li>
+              <a class="link" href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+              <a class="link" href="#events">Experiences</a>
+            </li>
+            <li>
+              <a class="link" href="#contact">Let's work together</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="hero ">
+      <h1>
+        Hi, my name is <strong>Adriana</strong> <br/> Javascript developer
+      </h1>
+      <!-- <img src="images/hero.jpg" width="500" alt="principal image of the site"/> -->
+    </section>
+    <!-- Convention: prefer class instead of id -->
+    <section id="portfolio" class="portfolio">
+      <h2>Portfolio (Relevant Projects)</h2>
+      <article class="project">
+        <div class="project-details">
+          <h3 class="project-title">Platzi Video</h3>
+          <h6 class="project-course">React Native / React</h6>
+          <p class="date"><small><strong>Date: 01/07/2018</strong></small></p>
+          <p class="project-url"><small><strong>You can see it here:</strong> www.platzi.com/native </small></p>
+          <p class="project-description">Platzi Video fue el resultado de 3 meses de trabajo para crear la mejor app para enseñar 
+            el funcionamiento de React y React Native. Desde crear un vista-detalle, hasta patrones 
+            avanzados de navegación, este proyecto ha sido el ejemplo de futuros creadores de 
+            aplicaciones multiplataforma
+          </p>
+        </div>
+        <figure class="project-imageContainer">
+          <img class="project-image" src="images/platzi-video-react-native.png" alt="React Native course project" width="500">
+        </figure>
+      </article>
+      <article class="project">
+          <div class="project-details">
+            <h3 class="project-title">Platzi Video</h3>
+            <h6 class="project-course">React Native / React</h6>
+            <p class="date"><small><strong>Date: 01/07/2018</strong></small></p>
+            <p class="project-url"><small><strong>You can see it here:</strong> www.platzi.com/native </small></p>
+            <p class="project-description">Platzi Video fue el resultado de 3 meses de trabajo para crear la mejor app para enseñar 
+              el funcionamiento de React y React Native. Desde crear un vista-detalle, hasta patrones 
+              avanzados de navegación, este proyecto ha sido el ejemplo de futuros creadores de 
+              aplicaciones multiplataforma
+            </p>
+          </div>
+          <figure class="project-imageContainer">
+            <img class="project-image" src="images/platzi-video-react-native.png" alt="React Native course project" width="500">
+          </figure>
+        </article>
+    </section>
+    <section id="events">
+      <h2>Más sobre mi experiencia</h2>
+      <article class="event">
+        <figure class="event-imageContainer">
+          <img class="event-image" src="images/platzi-conf.jpg" width="500" />
+        </figure>
+        <h3 class="event-title">PlatziConf México 2018</h3>
+        <p class="event-description">El evento más grande sobre gente que quiere aprender más de internet. 
+          En este evento te comparto cómo tener una vida de constante aprendizaje.</p>
+        <a class="event-url" href="https://www.youtube.com/watch?v=BIS7cWGgJg0" target="_blank">Ver Plática</a>
+      </article>
+    </section>
+    <section id="contact" class="contact">
+      <form action="/suscription/" class="form-email">
+        <h3>Shall we build something together?</h3>
+        <!-- <label for="email">Leave us your email</label> `for` is used to set focus on the textfield -->
+        <input type="text" placeholder="Leave us your email" id="email" />
+        <!-- <input type="submit" value="Button text"> -->
+        <button>Send</button>
+      </form>
+    </section>
+    <footer class="footer">footer</footer>
+  </body>
+</html>

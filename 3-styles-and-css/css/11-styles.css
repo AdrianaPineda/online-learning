@@ -1,0 +1,99 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: normal;
+  /* font-style: italic; */
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.5;
+  letter-spacing: -.2px;
+  color: white;
+  margin: 0px;
+  /* text-transform: uppercase; */
+  /* text-decoration: underline; */
+}
+/* Margin collapsing: maximum margin between 2 elements, not the sum */
+
+h1 strong {
+  color: #026fff;
+}
+
+.hero {
+  height: 300px;
+  background-color: #1b2127;
+  background-image: url('../images/hero.jpg');
+  background-size: 500px 300px;
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+
+.portfolio {
+  background: #fafafa;
+}
+
+.project {
+  border: 1px solid gray;
+  border-radius: 10px;
+  /* when there is no border color specified, it will take the color
+  of the current text */
+  margin: 10px;
+  padding: 20px;
+  background: white;
+  /* The following (box-sizing) will make this element to have an exact width and height (including padding and border) */
+  /* box-sizing: border-box; */
+  /* width: 500px; */
+  /* height: 500px; */
+}
+
+.project-details {
+  width: 500px;
+  display: inline-block;
+}
+
+.project-imageContainer {
+  width: 500px;
+  display: inline-block;
+}
+
+.header {
+  background-color: #1b2127;
+  color: white;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Displays
+none > won't show
+block > elements will tend to occupy all width available
+inline > content will tend to be displayed next to each other, 
+but keep in mind that the elements will occupy the width they need 
+and will bypass any width property set
+inline-block > respects width
+flex > 
+*/
+
+/* When we use flexbox there is no margin collapsing */
+.flexbox {
+  display: flex;
+  /* affects **immediate** children, not children of children ^ */
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  justify-content: space-evenly;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  margin: 1.5px;
+  border: 1px solid red;
+  flex-shrink: 0;
+}
